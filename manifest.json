@@ -1,0 +1,55 @@
+{
+    "name": "PluXml",
+    "id": "pluxml",
+    "description": {
+        "en": "A fast and light blog/CMS with XML",
+        "fr": "Blog ou CMS à l'Xml, rapide et léger"
+    },
+    "developer": {
+        "name": "matlink",
+        "email": "matlink@matlink.fr",
+        "url": ""
+    },
+    "multi_instance": "false",
+    "license": "GPL",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for pluxml",
+                    "fr": "Choisissez un domaine pour pluxml"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for pluxml",
+                    "fr": "Choisissez un chemin pour pluxml"
+                },
+                "example": "/example",
+                "default": "/example"
+            },
+            {
+                "name": "admin",
+                "ask": {
+                    "en": "Choose an admin user for pluxml",
+                    "fr": "Choisissez un administrateur pour pluxml"
+                },
+                "example": "homer"
+            },
+            {
+                "name": "public_site",
+                "ask": {
+                    "en": "Should this application be public ?",
+                    "fr": "Est-ce que cette application doit être visible publiquement ?"
+                },
+                "choices": ["Yes", "No"],
+                "default": "No"
+            }
+
+
+        ]
+    }
+}
