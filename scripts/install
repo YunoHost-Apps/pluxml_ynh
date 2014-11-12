@@ -26,13 +26,15 @@ fi
 # Save app settings
 sudo yunohost app setting $app admin -v "$admin"
 sudo yunohost app setting $app is_public -v "$is_public"
+sudo yunohost app setting $app domain -v "$domain"
+sudo yunohost app setting $app path -v "$path"
 
 #create path for copying
 final_path=/var/www/$app
 sudo mkdir -p $final_path
 
 #copy files to final folder and set permissions
-sudo cp -R ../src/* $final_path/
+sudo cp -R ../sources/* $final_path/
 sudo chown www-data:www-data -R $final_path
 
 #configure nginx settings
@@ -41,17 +43,21 @@ sudo sed -i "s@YNH_EXAMPLE_ALIAS@$final_path@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 #temporal set public acessible
-sudo yunohost app setting $app skipped_uris -v "/"
+sudo yunohost app setting $app unprotected_uris -v "/"
 
 #make request to install app
-#token=
-curl -k -X POST --data "default_lang=fr&timezone=Greenland&install=Installer&name=$admin&login=$admin&pwd=$password&pwd2=$password&token=$token" https://$domain/$path/install.php
+#get the html page 
+curl -kL -o "install_page.html" https://$domain/$path/install.php >/dev/null 2>&1
+#get the token for form validation
+token=$(cat "install_page.html" | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
+#send http POST values
+curl -k -X POST --data "default_lang=fr&timezone=Greenland&install=Installer&name=$admin&login=$admin&pwd=$password&pwd2=$password&token=$token" https://$domain/$path/install.php >/dev/null 2>&1
 sudo chmod 750 -R $final_path
 
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
 then
-sudo yunohost app setting wordpress skipped_uris -d
+sudo yunohost app setting $app skipped_uris -d
 fi
 
 #adding admin to the allowed users
