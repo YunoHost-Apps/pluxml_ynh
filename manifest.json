@@ -28,8 +28,8 @@
                     "en": "Choose a path for pluxml",
                     "fr": "Choisissez un chemin pour pluxml"
                 },
-                "example": "/example",
-                "default": "/example"
+                "example": "/pluxml",
+                "default": "/pluxml"
             },
             {
                 "name": "admin",
