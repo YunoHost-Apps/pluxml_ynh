@@ -1,0 +1,6 @@
+#! /bin/bash
+
+app=pluxml
+
+sudo rm -rf /var/www/$app
+sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf

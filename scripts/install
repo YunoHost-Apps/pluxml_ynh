@@ -1,0 +1,54 @@
+#! /bin/bash
+
+app=pluxml
+
+#retrieve arguments
+domain=$1
+path=$2
+admin=$3
+is_public=$4
+
+
+# Check domain/path availability
+sudo yunohost app checkurl $domain$path -a $app
+if [[ ! $? -eq 0 ]]; then
+exit 1
+fi
+
+# Check user
+sudo yunohost user list --json | grep -q "\"username\": \"$admin\""
+if [[ ! $? -eq 0 ]]; then
+echo "Wrong user"
+exit 1
+fi
+
+# Save app settings
+sudo yunohost app setting $app admin -v "$admin"
+sudo yunohost app setting $app is_public -v "$is_public"
+
+#create path for copying
+final_path=/var/www/$app
+sudo mkdir -p $final_path
+
+#copy files to final folder and set permissions
+sudo cp -R ../src/* $final_path/
+sudo chown www-data:www-data -R $final_path
+sudo chmod 750 -R $final_path
+
+#configure nginx settings
+sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
+sudo sed -i "s@YNH_EXAMPLE_ALIAS@$final_path/www/@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+
+# If app is public, add url to SSOWat conf as skipped_uris
+if [ "$is_public" = "Yes" ];
+then
+sudo yunohost app setting $app skipped_uris -v "/"
+fi
+
+#adding admin to the allowed users
+sudo yunohost app addaccess $app $admin
+
+# Restart services
+sudo service nginx reload
+sudo yunohost app ssowatconf
