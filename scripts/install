@@ -47,7 +47,7 @@ sudo yunohost app setting $app skipped_uris -v "/"
 fi
 
 #adding admin to the allowed users
-sudo yunohost app addaccess $app $admin
+sudo yunohost app addaccess $app -u $admin
 
 # Restart services
 sudo service nginx reload
