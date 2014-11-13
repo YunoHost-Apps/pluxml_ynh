@@ -6,8 +6,8 @@ app=pluxml
 domain=$1
 path=$2
 admin=$3
-is_public=$4
-password=$5
+password=$4
+is_public=$5
 
 domain=${$domain%/}
 
