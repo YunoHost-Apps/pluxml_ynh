@@ -63,7 +63,7 @@ fi
 #adding admin to the allowed users
 sudo yunohost app addaccess $app -u $admin
 
-sudo rm -f $final_path/install.php
+#sudo rm -f $final_path/install.php
 # Restart services
 sudo service nginx reload
 sudo yunohost app ssowatconf
