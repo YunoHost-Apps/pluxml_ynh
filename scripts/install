@@ -25,13 +25,15 @@ fi
 # Save app settings
 sudo yunohost app setting $app admin -v "$admin"
 sudo yunohost app setting $app is_public -v "$is_public"
+sudo yunohost app setting $app domain -v "$domain"
+sudo yunohost app setting $app path -v "$path"
 
 #create path for copying
 final_path=/var/www/$app
 sudo mkdir -p $final_path
 
 #copy files to final folder and set permissions
-sudo cp -R ../src/* $final_path/
+sudo cp -R ../sources/* $final_path/
 sudo chown www-data:www-data -R $final_path
 sudo chmod 750 -R $final_path
 
@@ -43,7 +45,7 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 # If app is public, add url to SSOWat conf as skipped_uris
 if [ "$is_public" = "Yes" ];
 then
-sudo yunohost app setting $app skipped_uris -v "/"
+sudo yunohost app setting $app unprotected_uris -v "/"
 fi
 
 #adding admin to the allowed users
