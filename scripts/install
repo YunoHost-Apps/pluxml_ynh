@@ -63,7 +63,7 @@ sudo chmod 750 -R $final_path
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
 then
-sudo yunohost app setting $app skipped_uris -d
+sudo yunohost app setting $app unprotected_uris -d
 fi
 
 #adding admin to the allowed users
