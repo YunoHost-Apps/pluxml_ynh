@@ -9,7 +9,7 @@ admin=$3
 password=$4
 is_public=$5
 
-domain=${$domain%/}
+domain=${$domain%?}
 
 
 # Check domain/path availability
