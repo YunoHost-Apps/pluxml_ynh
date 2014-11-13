@@ -54,11 +54,11 @@ sudo yunohost app ssowatconf
 
 #make request to install app
 #get the html page 
-sudo curl -kL -o /tmp/install_page.html https://$domain/$path/install.php >/dev/null 2>&1
+sudo curl -kL -o install_page.html https://$domain/$path/install.php >/dev/null 2>&1
 #get the token for form validation
-token=$(sudo cat /tmp/install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
+token=$(sudo cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 #send http POST values
-sudo curl -k -X POST --data "default_lang=$default_lang&timezone=Greenland&install=Installer&name=$admin&login=$admin&pwd=$password&pwd2=$password&token=$token" https://$domain/$path/install.php >/dev/null 2>&1
+sudo curl -k -X POST --data "default_lang=$default_lang&install=Installer&name=$admin&login=$admin&pwd=$password&pwd2=$password&token=$token" https://$domain/$path/install.php >/dev/null 2>&1
 sudo chmod 750 -R $final_path
 
 # If app is private, remove url to SSOWat conf from skipped_uris
