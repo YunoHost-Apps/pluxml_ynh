@@ -40,6 +40,14 @@
                 "example": "homer"
             },
             {
+                "name": "password",
+                "ask": {
+                    "en": "Choose an admin password for pluxml",
+                    "fr": "Choisissez un mot de passe administrateur pour pluxml"
+                },
+                "example": "super_secret_password"
+            },
+            {
                 "name": "public_site",
                 "ask": {
                     "en": "Should this application be public ?",
