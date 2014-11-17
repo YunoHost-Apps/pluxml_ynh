@@ -13,14 +13,14 @@ default_lang=$6
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a $app
 if [[ ! $? -eq 0 ]]; then
-exit 1
+  exit 1
 fi
 
 # Check user
 sudo yunohost user list --json | grep -q "\"username\": \"$admin\""
 if [[ ! $? -eq 0 ]]; then
-echo "Wrong user"
-exit 1
+  echo "Wrong user"
+  exit 1
 fi
 
 # Save app settings
@@ -61,7 +61,7 @@ sudo chmod 750 -R $final_path
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
 then
-sudo yunohost app setting $app unprotected_uris -d
+  sudo yunohost app setting $app unprotected_uris -d
 fi
 
 #adding admin to the allowed users
