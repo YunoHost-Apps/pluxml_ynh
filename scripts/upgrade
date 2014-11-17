@@ -17,6 +17,7 @@ final_path=/var/www/$app
 sudo mkdir -p $final_path
 sudo cp -a ../sources/* $final_path
 sudo find $final_path -type f -name ".htaccess" | xargs sudo rm
+sudo rm $final_path/install.php
 
 sudo chown -R root: $final_path
 sudo chown -R www-data: $final_path/data
