@@ -35,7 +35,10 @@ sudo mkdir -p $final_path
 
 #copy files to final folder and set permissions
 sudo cp -R ../sources/* $final_path/
-sudo chown www-data:www-data -R $final_path
+sudo chown -R root: $final_path
+sudo chown -R www-data: $final_path/data
+sudo find $final_path -type f | xargs sudo chmod 644
+sudo find $final_path -type d | xargs sudo chmod 755
 
 #configure nginx settings
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
@@ -56,7 +59,6 @@ sudo curl -kL -o install_page.html https://$domain/$path/install.php >/dev/null 
 token=$(sudo cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 #send http POST values
 sudo curl -k -X POST --data "default_lang=$default_lang&install=Installer&name=$admin&login=$admin&pwd=$password&pwd2=$password&token=$token" https://$domain/$path/install.php >/dev/null 2>&1
-sudo chmod 750 -R $final_path
 
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
