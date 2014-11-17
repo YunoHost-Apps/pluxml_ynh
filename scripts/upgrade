@@ -25,7 +25,7 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 # If app is public, add url to SSOWat conf as skipped_uris
 if [ "$is_public" = "Yes" ];
 then
-sudo yunohost app setting $app unprotected_uris -v "/"
+  sudo yunohost app setting $app unprotected_uris -v "/"
 fi
 
 # Restart services
