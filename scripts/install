@@ -10,9 +10,6 @@ password=$4
 is_public=$5
 default_lang=$6
 
-domain=${$domain%?}
-
-
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a $app
 if [[ ! $? -eq 0 ]]; then
