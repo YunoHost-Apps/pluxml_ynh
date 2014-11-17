@@ -56,7 +56,7 @@ sudo yunohost app ssowatconf
 #get the html page 
 curl -kL -o install_page.html https://$domain/$path/install.php >/dev/null 2>&1
 #get the token for form validation
-token=$(sudo cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
+token=$(cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 #send http POST values
 curl -k -X POST \
   --data-urlencode "default_lang=$default_lang" \
@@ -68,6 +68,8 @@ curl -k -X POST \
   --data-urlencode "token=$token" \
   https://$domain/$path/install.php > /dev/null 2>&1
 
+sudo rm -f $final_path/install.php
+
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
 then
@@ -77,7 +79,6 @@ fi
 #adding admin to the allowed users
 sudo yunohost app addaccess $app -u $admin
 
-sudo rm -f $final_path/install.php
 # Restart services
 sudo service nginx reload
 sudo yunohost app ssowatconf
