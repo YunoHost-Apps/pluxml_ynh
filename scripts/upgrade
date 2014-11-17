@@ -16,6 +16,14 @@ path=${path%/}
 final_path=/var/www/$app
 sudo mkdir -p $final_path
 sudo cp -a ../sources/* $final_path
+sudo find $final_path -type f -name ".htaccess" | xargs sudo rm
+sudo rm $final_path/install.php
+
+sudo chown -R root: $final_path
+sudo chown -R www-data: $final_path/data
+sudo find $final_path -type f | xargs sudo chmod 644
+sudo find $final_path -type d | xargs sudo chmod 755
+
 
 #configure nginx settings
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
@@ -25,7 +33,7 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 # If app is public, add url to SSOWat conf as skipped_uris
 if [ "$is_public" = "Yes" ];
 then
-sudo yunohost app setting $app unprotected_uris -v "/"
+  sudo yunohost app setting $app unprotected_uris -v "/"
 fi
 
 # Restart services

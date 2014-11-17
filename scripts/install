@@ -10,20 +10,17 @@ password=$4
 is_public=$5
 default_lang=$6
 
-domain=${$domain%?}
-
-
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a $app
 if [[ ! $? -eq 0 ]]; then
-exit 1
+  exit 1
 fi
 
 # Check user
 sudo yunohost user list --json | grep -q "\"username\": \"$admin\""
 if [[ ! $? -eq 0 ]]; then
-echo "Wrong user"
-exit 1
+  echo "Wrong user"
+  exit 1
 fi
 
 # Save app settings
@@ -38,14 +35,20 @@ sudo mkdir -p $final_path
 
 #copy files to final folder and set permissions
 sudo cp -R ../sources/* $final_path/
-sudo chown www-data:www-data -R $final_path
+sudo find $final_path -type f -name ".htaccess" | xargs sudo rm
+
+#setup permissions
+sudo chown -R root: $final_path
+sudo chown -R www-data: $final_path/data
+sudo find $final_path -type f | xargs sudo chmod 644
+sudo find $final_path -type d | xargs sudo chmod 755
 
 #configure nginx settings
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
 sudo sed -i "s@YNH_EXAMPLE_ALIAS@$final_path@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
-#temporal set public acessible
+#temporary set public accessible
 sudo yunohost app setting $app unprotected_uris -v "/"
 
 # Restart services
@@ -54,23 +57,31 @@ sudo yunohost app ssowatconf
 
 #make request to install app
 #get the html page 
-sudo curl -kL -o install_page.html https://$domain/$path/install.php >/dev/null 2>&1
+curl -kL -o install_page.html https://$domain/$path/install.php >/dev/null 2>&1
 #get the token for form validation
-token=$(sudo cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
+token=$(cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 #send http POST values
-sudo curl -k -X POST --data "default_lang=$default_lang&install=Installer&name=$admin&login=$admin&pwd=$password&pwd2=$password&token=$token" https://$domain/$path/install.php >/dev/null 2>&1
-sudo chmod 750 -R $final_path
+curl -k -X POST \
+  --data-urlencode "default_lang=$default_lang" \
+  --data-urlencode "install=Installer" \
+  --data-urlencode "name=$admin" \
+  --data-urlencode "login=$admin" \
+  --data-urlencode "pwd=$password" \
+  --data-urlencode "pwd2=$password" \
+  --data-urlencode "token=$token" \
+  https://$domain$path/install.php > /dev/null 2>&1
+
+sudo rm -f $final_path/install.php
 
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
 then
-sudo yunohost app setting $app unprotected_uris -d
+  sudo yunohost app setting $app unprotected_uris -d
 fi
 
 #adding admin to the allowed users
 sudo yunohost app addaccess $app -u $admin
 
-sudo rm -f $final_path/install.php
 # Restart services
 sudo service nginx reload
 sudo yunohost app ssowatconf
