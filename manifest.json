@@ -15,6 +15,7 @@
         "install" : [
             {
                 "name": "domain",
+                "type": "domain",
                 "ask": {
                     "en": "Choose a domain for pluxml",
                     "fr": "Choisissez un domaine pour pluxml"
@@ -23,6 +24,7 @@
             },
             {
                 "name": "path",
+                "type": "path",
                 "ask": {
                     "en": "Choose a path for pluxml",
                     "fr": "Choisissez un chemin pour pluxml"
@@ -32,6 +34,7 @@
             },
             {
                 "name": "admin",
+                "type": "user",
                 "ask": {
                     "en": "Choose an admin user for pluxml",
                     "fr": "Choisissez un administrateur pour pluxml"
@@ -40,6 +43,7 @@
             },
             {
                 "name": "password",
+                "type": "password",
                 "ask": {
                     "en": "Choose an admin password for pluxml",
                     "fr": "Choisissez un mot de passe administrateur pour pluxml"
