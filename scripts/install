@@ -57,7 +57,7 @@ sudo yunohost app ssowatconf
 
 #make request to install app
 #get the html page 
-curl -kL -o install_page.html https://$domain/$path/install.php >/dev/null 2>&1
+curl -kL -o install_page.html https://$domain$path/install.php >/dev/null 2>&1
 #get the token for form validation
 token=$(cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 #send http POST values
