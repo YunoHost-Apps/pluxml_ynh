@@ -55,9 +55,14 @@ sudo yunohost app setting $app unprotected_uris -v "/"
 sudo service nginx reload
 sudo yunohost app ssowatconf
 
+#temporary add domain name to /etc/hosts
+sudo sed -i "1 i\127.0.0.1 $domain #pluxml_hosts" /etc/hosts
+
 #make request to install app
 #get the html page 
 curl -kL -o install_page.html https://$domain$path/install.php >/dev/null 2>&1
+
+
 #get the token for form validation
 token=$(cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 #send http POST values
@@ -72,6 +77,9 @@ curl -k -X POST \
   https://$domain$path/install.php > /dev/null 2>&1
 
 sudo rm -f $final_path/install.php
+
+#remove domain name from /etc/hosts
+sudo sed -i "/#pluxml_hosts/d" /etc/hosts
 
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" = "No" ];
