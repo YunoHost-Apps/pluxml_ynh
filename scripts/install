@@ -90,6 +90,9 @@ fi
 #adding admin to the allowed users
 sudo yunohost app addaccess $app -u $admin
 
+#allow only allowed users to access admin panel
+sudo yunohost app setting pluxml protected_uris -v "/core/admin/"
+
 # Restart services
 sudo service nginx reload
 sudo yunohost app ssowatconf
