@@ -19,7 +19,11 @@ $output='';
 $filename = realpath(PLX_PLUGINS.$plugin.'/lang/'.$plxAdmin->aConf['default_lang'].'-help.php');
 if(is_file($filename)) {
 	ob_start();
-	echo '<p><a href="parametres_plugins.php">'.L_BACK_TO_PLUGINS.'</a></p>';
+	echo '
+	<div class="inline-form action-bar">
+		<h2>'.plxUtils::strCheck($plugin).'</h2>
+		<p><a class="back" href="parametres_plugins.php">'.L_BACK_TO_PLUGINS.'</a></p>
+	</div>';
 	include($filename);
 	$output=ob_get_clean();
 }

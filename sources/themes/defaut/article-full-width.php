@@ -1,22 +1,20 @@
 <?php include(dirname(__FILE__) . '/header.php'); ?>
 
-<section>
+	<main class="main grid" role="main">
 
-	<div id="container">
+		<section class="col sml-12">
 
-		<div class="full-width">
-
-			<article role="article" id="post-<?php echo $plxShow->artId(); ?>">
+			<article class="article" role="article" id="post-<?php echo $plxShow->artId(); ?>">
 
 				<header>
 					<h1>
-						<?php $plxShow->artTitle(''); ?>
+						<?php $plxShow->artTitle(); ?>
 					</h1>
-					<p>
-						<?php $plxShow->lang('WRITTEN_BY') ?> <?php $plxShow->artAuthor(); ?> -
+					<small>
+						<?php $plxShow->lang('WRITTEN_BY'); ?> <?php $plxShow->artAuthor() ?> -
 						<time datetime="<?php $plxShow->artDate('#num_year(4)-#num_month-#num_day'); ?>"><?php $plxShow->artDate('#num_day #month #num_year(4)'); ?></time> -
-						<?php $plxShow->artNbCom(); ?>
-					</p>
+						<a href="#comments" title="<?php $plxShow->artNbCom(); ?>"><?php $plxShow->artNbCom(); ?></a>
+					</small>
 				</header>
 
 				<section>
@@ -24,10 +22,10 @@
 				</section>
 
 				<footer>
-					<p>
-						<?php $plxShow->lang('CLASSIFIED_IN') ?> : <?php $plxShow->artCat(); ?> -
-						<?php $plxShow->lang('TAGS') ?> : <?php $plxShow->artTags(); ?>
-					</p>
+					<small>
+						<?php $plxShow->lang('CLASSIFIED_IN') ?> : <?php $plxShow->artCat() ?> - 
+						<?php $plxShow->lang('TAGS') ?> : <?php $plxShow->artTags() ?>
+					</small>
 				</footer>
 
 			</article>
@@ -36,10 +34,8 @@
 
 			<?php include(dirname(__FILE__).'/commentaires.php'); ?>
 
-		</div>
+		</section>
 
-	</div>
+	</main>
 
-</section>
-
-<?php include(dirname(__FILE__) . '/footer.php'); ?>
+<?php include(dirname(__FILE__).'/footer.php'); ?>

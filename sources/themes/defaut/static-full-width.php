@@ -1,12 +1,10 @@
 <?php include(dirname(__FILE__) . '/header.php'); ?>
 
-<section>
+	<main class="main grid" role="main">
 
-	<div id="container">
+		<section class="col sml-12">
 
-		<div class="full-width">
-
-			<article role="article" id="static-page-<?php echo $plxShow->staticId(); ?>">
+			<article class="article static" role="article" id="static-page-<?php echo $plxShow->staticId(); ?>">
 
 				<header>
 					<h1>
@@ -20,10 +18,9 @@
 
 			</article>
 
-		</div>
+		</section>
 
-	</div>
+	</main>
 
-</section>
+<?php include(dirname(__FILE__).'/footer.php'); ?>
 
-<?php include(dirname(__FILE__) . '/footer.php'); ?>

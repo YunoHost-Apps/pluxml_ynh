@@ -58,6 +58,8 @@ function pluginsList($plugins, $defaultLang, $type) {
 
 				# plugin infos
 				$output .= '<td>';
+					# message d'alerte si plugin non configuré
+					if($type AND file_exists(PLX_PLUGINS.$plugName.'/config.php') AND !file_exists(PLX_ROOT.PLX_CONFIG_PATH.'plugins/'.$plugName.'.xml')) $output .= '<span style="margin-top:5px" class="alert red float-right">'.L_PLUGIN_NO_CONFIG.'</span>';
 					# title + version
 					$output .= '<strong>'.plxUtils::strCheck($plugInstance->getInfo('title')).'</strong> - '.L_PLUGINS_VERSION.' <strong>'.plxUtils::strCheck($plugInstance->getInfo('version')).'</strong>';
 					# date
@@ -68,8 +70,6 @@ function pluginsList($plugins, $defaultLang, $type) {
 					$output .= L_PLUGINS_AUTHOR.' : '.plxUtils::strCheck($plugInstance->getInfo('author'));
 					# site
 					if($plugInstance->getInfo('site')!='') $output .= ' - <a href="'.plxUtils::strCheck($plugInstance->getInfo('site')).'">'.plxUtils::strCheck($plugInstance->getInfo('site')).'</a>';
-					# message d'alerte si plugin non configuré
-					if($type AND file_exists(PLX_PLUGINS.$plugName.'/config.php') AND !file_exists(PLX_ROOT.PLX_CONFIG_PATH.'plugins/'.$plugName.'.xml')) $output .= '<br /><span class="alert">'.L_PLUGIN_NO_CONFIG.'</span>';
 				$output .= '</td>';
 
 				# colonne pour trier les plugins
@@ -119,48 +119,54 @@ if($sel=='1') {
 }
 # fil d'ariane
 $breadcrumbs = array();
-$breadcrumbs[] = '<a '.($_SESSION['selPlugins']=='1'?'class="selected" ':'').'href="parametres_plugins.php?sel=1">'.L_PLUGINS_ACTIVE_LIST.'</a>&nbsp;('.$nbActivePlugins.')';
-$breadcrumbs[] = '<a '.($_SESSION['selPlugins']=='0'?'class="selected" ':'').'href="parametres_plugins.php?sel=0">'.L_PLUGINS_INACTIVE_LIST.'</a>&nbsp;('.$nbInactivePlugins.')';
+$breadcrumbs[] = '<li><a '.($_SESSION['selPlugins']=='1'?'class="selected" ':'').'href="parametres_plugins.php?sel=1">'.L_PLUGINS_ACTIVE_LIST.'</a>&nbsp;('.$nbActivePlugins.')</li>';
+$breadcrumbs[] = '<li><a '.($_SESSION['selPlugins']=='0'?'class="selected" ':'').'href="parametres_plugins.php?sel=0">'.L_PLUGINS_INACTIVE_LIST.'</a>&nbsp;('.$nbInactivePlugins.')</li>';
 
 # On inclut le header
 include(dirname(__FILE__).'/top.php');
 
 ?>
 
-<h2><?php echo L_PLUGINS_TITLE ?></h2>
-
-<?php eval($plxAdmin->plxPlugins->callHook('AdminSettingsPluginsTop')) # Hook Plugins ?>
-
-<p class="breadcrumbs">
-	<?php echo implode('&nbsp;|&nbsp;', $breadcrumbs); ?>
-</p>
 <form action="parametres_plugins.php" method="post" id="form_plugins">
-<table class="table">
-<thead>
-	<tr>
-		<th class="checkbox"><input type="checkbox" onclick="checkAll(this.form, 'chkAction[]')" /></th>
-		<th class="icon">&nbsp;</th>
-		<th class="description"><?php echo L_MENU_CONFIG_PLUGINS ?></th>
-		<?php if($_SESSION['selPlugins']=='1') : ?>
-		<th class="col"><?php echo L_PLUGINS_LOADING_SORT ?></th>
-		<?php endif; ?>
-		<th class="action"><?php echo L_PLUGINS_ACTION ?></th>
-	</tr>
-</thead>
-<tbody>
-	<?php echo $plugins ?>
-</tbody>
-</table>
-<?php if($_SESSION['selPlugins']=='1') : ?>
-<p class="center">
-	<input class="button update " type="submit" name="update" value="<?php echo L_PLUGINS_APPLY_BUTTON ?>" />
-</p>
-<?php endif; ?>
-<p>
-	<?php echo plxToken::getTokenPostMethod() ?>
-	<?php plxUtils::printSelect('selection', $aSelList,'', false,'','id_selection'); ?>&nbsp;
-	<input class="button submit" type="submit" name="submit" value="<?php echo L_OK ?>" onclick="return confirmAction(this.form, 'id_selection', 'delete', 'chkAction[]', '<?php echo L_CONFIRM_DELETE ?>')" />
-</p>
+
+	<div class="inline-form action-bar">
+		<h2><?php echo L_PLUGINS_TITLE ?></h2>
+		<ul class="menu">
+			<?php echo implode($breadcrumbs); ?>
+		</ul>
+		<?php echo plxToken::getTokenPostMethod() ?>
+		<?php plxUtils::printSelect('selection', $aSelList,'', false,'','id_selection'); ?>
+		<input type="submit" name="submit" value="<?php echo L_OK ?>" onclick="return confirmAction(this.form, 'id_selection', 'delete', 'chkAction[]', '<?php echo L_CONFIRM_DELETE ?>')" />
+		&nbsp;&nbsp;&nbsp;
+		<?php if($sel==1) { ?>
+		<input type="submit" name="update" value="<?php echo L_PLUGINS_APPLY_BUTTON ?>" />
+		<?php } ?>
+	</div>
+
+	<?php eval($plxAdmin->plxPlugins->callHook('AdminSettingsPluginsTop')) # Hook Plugins ?>
+
+	<div class="scrollable-table">
+		<table id="plugins-table" class="full-width">
+			<thead>
+				<tr>
+					<th><input type="checkbox" onclick="checkAll(this.form, 'chkAction[]')" /></th>
+					<th>&nbsp;</th>
+					<th><?php echo L_MENU_CONFIG_PLUGINS ?></th>
+					<?php if($_SESSION['selPlugins']=='1') : ?>
+					<th><?php echo L_PLUGINS_LOADING_SORT ?></th>
+					<?php endif; ?>
+					<th><?php echo L_PLUGINS_ACTION ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php echo $plugins ?>
+			</tbody>
+		</table>
+	</div>
+
+	<?php if($_SESSION['selPlugins']=='1') : ?>
+	<?php endif; ?>
+
 </form>
 
 <?php

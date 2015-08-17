@@ -1,12 +1,10 @@
 <?php include(dirname(__FILE__).'/header.php'); ?>
 
-<section>
+	<main class="main grid" role="main">
 
-	<div id="container">
+		<section class="col sml-12 med-8">
 
-		<div class="width-sidebar">
-
-			<article role="article">
+			<article class="article" role="article">
 
 				<header>
 					<h1>
@@ -22,12 +20,11 @@
 
 			</article>
 
-		</div>
+		</section>
 
 		<?php include(dirname(__FILE__).'/sidebar.php'); ?>
 
-	</div>
-
-</section>
+	</main>
 
 <?php include(dirname(__FILE__).'/footer.php'); ?>
+

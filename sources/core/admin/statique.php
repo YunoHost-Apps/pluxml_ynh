@@ -44,44 +44,67 @@ if(!empty($_POST) AND isset($plxAdmin->aStats[$_POST['id']])) {
 }
 
 # On récupère les templates des pages statiques
+$aTemplates = array();
 $files = plxGlob::getInstance(PLX_ROOT.$plxAdmin->aConf['racine_themes'].$plxAdmin->aConf['style']);
 if ($array = $files->query('/^static(-[a-z0-9-_]+)?.php$/')) {
 	foreach($array as $k=>$v)
 		$aTemplates[$v] = $v;
 }
+if(empty($aTemplates)) $aTemplates[''] = L_NONE1;
 
 # On inclut le header
 include(dirname(__FILE__).'/top.php');
 ?>
 
-<p class="back"><a href="statiques.php"><?php echo L_STATIC_BACK_TO_PAGE ?></a></p>
-
-<h2><?php echo L_STATIC_TITLE ?> "<?php echo plxUtils::strCheck($title); ?>"</h2>
-
-<?php eval($plxAdmin->plxPlugins->callHook('AdminStaticTop')) # Hook Plugins ?>
-
 <form action="statique.php" method="post" id="form_static">
-	<fieldset>
-		<?php plxUtils::printInput('id', $id, 'hidden');?>
-		<p id="p_content"><label for="id_content"><?php echo L_CONTENT_FIELD ?>&nbsp;:</label></p>
-		<?php plxUtils::printArea('content', plxUtils::strCheck($content),140,30) ?>
-		<?php if($active) : ?>
+
+	<div class="inline-form action-bar">
+		<h2><?php echo L_STATIC_TITLE ?> "<?php echo plxUtils::strCheck($title); ?>"</h2>
+		<p><a class="back" href="statiques.php"><?php echo L_STATIC_BACK_TO_PAGE ?></a></p>
+		<input type="submit" value="<?php echo L_STATIC_UPDATE ?>"/>&nbsp;
 		<a href="<?php echo PLX_ROOT; ?>?static<?php echo intval($id); ?>/<?php echo $url; ?>"><?php echo L_STATIC_VIEW_PAGE ?> <?php echo plxUtils::strCheck($title); ?> <?php echo L_STATIC_ON_SITE ?></a>
-		<?php endif; ?>
-		<p><label for="id_template"><?php echo L_STATICS_TEMPLATE_FIELD ?>&nbsp;:</label></p>
-		<?php plxUtils::printSelect('template', $aTemplates, $template) ?>
-		<p><label for="id_title_htmltag"><?php echo L_STATIC_TITLE_HTMLTAG ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('title_htmltag',plxUtils::strCheck($title_htmltag),'text','50-255'); ?>
-		<p><label for="id_meta_description"><?php echo L_STATIC_META_DESCRIPTION ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('meta_description',plxUtils::strCheck($meta_description),'text','50-255'); ?>
-		<p><label for="id_meta_keywords"><?php echo L_STATIC_META_KEYWORDS ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('meta_keywords',plxUtils::strCheck($meta_keywords),'text','50-255'); ?>
-	</fieldset>
+	</div>
+
+	<?php eval($plxAdmin->plxPlugins->callHook('AdminStaticTop')) # Hook Plugins ?>
+
+		<fieldset>
+			<div class="grid">
+				<div class="col sml-12">
+					<?php plxUtils::printInput('id', $id, 'hidden');?>
+					<label for="id_content"><?php echo L_CONTENT_FIELD ?>&nbsp;:</label>
+					<?php plxUtils::printArea('content', plxUtils::strCheck($content),140,30,false,'full-width') ?>
+					<?php if($active) : ?>
+				</div>
+				<?php endif; ?>
+			</div>
+			<div class="grid">
+				<div class="col sml-12">
+					<label for="id_template"><?php echo L_STATICS_TEMPLATE_FIELD ?>&nbsp;:</label>
+					<?php plxUtils::printSelect('template', $aTemplates, $template) ?>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="col sml-12">
+					<label for="id_title_htmltag"><?php echo L_STATIC_TITLE_HTMLTAG ?>&nbsp;:</label>
+					<?php plxUtils::printInput('title_htmltag',plxUtils::strCheck($title_htmltag),'text','50-255'); ?>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="col sml-12">
+					<label for="id_meta_description"><?php echo L_STATIC_META_DESCRIPTION ?>&nbsp;:</label>
+					<?php plxUtils::printInput('meta_description',plxUtils::strCheck($meta_description),'text','50-255'); ?>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="col sml-12">
+					<label for="id_meta_keywords"><?php echo L_STATIC_META_KEYWORDS ?>&nbsp;:</label>
+					<?php plxUtils::printInput('meta_keywords',plxUtils::strCheck($meta_keywords),'text','50-255'); ?>
+				</div>
+			</div>
+		</fieldset>
 	<?php eval($plxAdmin->plxPlugins->callHook('AdminStatic')) # Hook Plugins ?>
-   	<p class="center">
-		<?php echo plxToken::getTokenPostMethod() ?>
-		<input type="submit" value="<?php echo L_STATIC_UPDATE ?>"/>
-	</p>
+	<?php echo plxToken::getTokenPostMethod() ?>
+
 </form>
 
 <?php

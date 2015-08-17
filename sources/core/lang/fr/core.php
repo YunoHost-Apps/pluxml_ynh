@@ -5,15 +5,15 @@ $LANG = array(
 'L_LANGUE'						=> 'Français',
 
 # common
-'L_PLUXML_VERSION'				=> 'Pluxml version',
+'L_PLUXML_VERSION'				=> 'PluXml version',
 'L_HOMEPAGE'					=> 'Accueil',
 'L_UNCLASSIFIED'				=> 'Non classé',
 'L_INFO_PHP_VERSION'			=> 'Version de php',
-'L_INFO_MAGIC_QUOTES'			=> 'Etat des "magic quotes"',
+'L_INFO_MAGIC_QUOTES'			=> 'État des "magic quotes"',
 'L_INFO_CHARSET'				=> 'encodage',
 
 # index.php
-'L_ERR_THEME_NOTFOUND'			=> 'Le theme principal de PluXml est introuvable',
+'L_ERR_THEME_NOTFOUND'			=> 'Le thème principal de PluXml est introuvable',
 'L_ERR_FILE_NOTFOUND'			=> 'Le fichier cible de PluXml est introuvable',
 'L_ERR_PAGE_NOT_FOUND'			=> 'Page non trouvée',
 
@@ -57,7 +57,7 @@ $LANG = array(
 'L_THIRD'						=> 'troisième',
 'L_FOURTH'						=> 'quatrième',
 'L_FIFTH'						=> 'cinquième',
-'L_SIXTH'						=> 'sizième',
+'L_SIXTH'						=> 'sixième',
 'L_SEVENTH'						=> 'septième',
 'L_EIGTH'						=> 'huitième',
 'L_NINTH'						=> 'neuvième',
@@ -126,7 +126,7 @@ $LANG = array(
 'L_PAGEBLOG_TITLE'				=> 'Blog',
 
 # class.plx.feed.php
-'L_FEED_NO_PRIVATE_URL'			=> 'Les URLs privees n\'ont pas ete initialisees dans vos parametres d\'administration !',
+'L_FEED_NO_PRIVATE_URL'			=> 'Les URLs privées n\'ont pas été initialisées dans vos paramètres d\'administration !',
 'L_FEED_COMMENTS'				=> 'Commentaires',
 'L_FEED_ONLINE_COMMENTS'		=> 'Commentaires en ligne',
 'L_FEED_OFFLINE_COMMENTS'		=> 'Commentaires hors ligne',

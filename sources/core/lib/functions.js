@@ -1,11 +1,11 @@
 <!--
 function dateNow(delta) {
 	var d = new Date();
-    // convert to msec, add local time zone offset
-    // get UTC time in msec
-    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-    // create new Date object for different city using supplied offset
-    var now = new Date(utc + (1000*delta));
+	// convert to msec, add local time zone offset
+	// get UTC time in msec
+	var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+	// create new Date object for different city using supplied offset
+	var now = new Date(utc + (1000*delta));
 	var y = now.getFullYear();
 	var m = now.getMonth();
 	var d = now.getDate();
