@@ -2,11 +2,15 @@
 
 $LANG = array(
 
+'L_MENU'										=> 'Menú',
 'L_UNKNOWN_ERROR'								=> 'Error desconocido',
 'L_CONFIRM_DELETE'								=> '¿Desea confirmar la eliminación?',
 'L_SAVE_FILE'									=> 'Guardar el archivo',
 'L_SAVE_FILE_SUCCESSFULLY'						=> 'Archivo guardado correctamente',
 'L_SAVE_FILE_ERROR'								=> 'Error al guardar el archivo',
+'L_DELETE'										=> 'Eliminar',
+'L_DELETE_FILE' 				    			=> 'Eliminar archivo',
+'L_DELETE_FOLDER'				   				=> 'Eliminar carpeta',
 
 # class.plx.admin.php
 
@@ -116,6 +120,8 @@ $LANG = array(
 'L_ARTICLE_TITLE_HTMLTAG'						=> 'Contenido de la etiqueta de título («title», opcional)',
 'L_ARTICLE_CHAPO_HIDE'							=> 'ocultar',
 'L_ARTICLE_CHAPO_DISPLAY'						=> 'mostrar',
+'L_ARTICLE'										=> 'artículo',
+'L_ARTICLE_ID'									=> 'Identificador',
 
 # auth.php
 
@@ -156,7 +162,6 @@ $LANG = array(
 'L_OPTIONS'										=> 'Opciones',
 'L_NEW_CATEGORY'								=> 'Nueva categoría',
 'L_FOR_SELECTION'								=> 'Elementos seleccionados...',
-'L_DELETE'										=> 'Eliminar',
 'L_CAT_APPLY_BUTTON'							=> 'Modificar la lista de categorías',
 'L_CAT_UNKNOWN'									=> 'Categoría desconocida',
 
@@ -282,7 +287,7 @@ $LANG = array(
 'L_MEDIAS_DOCUMENTS'							=> 'Documentos',
 'L_MEDIAS_ADD_FILE'								=> 'Agregar archivo',
 'L_MEDIAS_DELETE_FOLDER'						=> 'Eliminar la carpeta',
-'L_MEDIAS_DELETE_FOLDER_CONFIRM'				=> '¿Desea eliminar la carpeta y su contenido?',
+'L_MEDIAS_DELETE_FOLDER_CONFIRM'				=> '¿Desea eliminar la carpeta %s y su contenido?',
 'L_MEDIAS_FOLDER'								=> 'Archivo',
 'L_MEDIAS_NEW_FOLDER'							=> 'Nueva carpeta',
 'L_MEDIAS_CREATE_FOLDER'						=> 'Crear una carpeta',
@@ -320,7 +325,7 @@ $LANG = array(
 'L_CONFIG_VIEW_IMAGES'							=> 'Tamaño de la imagen (largo x ancho)',
 'L_CONFIG_VIEW_THUMBS'							=> 'Tamaño de las miniaturas (largo x ancho)',
 'L_CONFIG_VIEW_HOMESTATIC'						=> 'Utilizar una página estática como página de inicio',
-'L_CONFIG_VIEW_HOMESTATIC_ACTIVE'				=> '<span class="alert">Advertencia: esta página está desactivada</span>',
+'L_CONFIG_VIEW_HOMESTATIC_ACTIVE'				=> 'Advertencia: esta página está desactivada',
 'L_CONFIG_VIEW_PLUXML_RESSOURCES'				=> 'Descargar otros temas en <a href="http://ressources.pluxml.org">ressources.pluxml.org</a>.',
 'L_CONFIG_VIEW_BYPAGE_FEEDS'					=> 'Cantidad de artículos en la sindicación RSS',
 'L_CONFIG_VIEW_FEEDS_HEADLINE'					=> 'Sómo mostrar subtítulos en la sindicación RSS de los artículos',
@@ -334,16 +339,15 @@ $LANG = array(
 
 'L_CONFIG_ADVANCED_DESC'						=> 'Configuración avanzada',
 'L_CONFIG_ADVANCED_URL_REWRITE'					=> 'Activar la reescritura de URLs',
-'L_CONFIG_ADVANCED_URL_REWRITE_ALERT'			=> '<span class="alert">Advertencia: ya existe un archivo «.htaccess» en la raíz de su instalación de PluXml. Si activa la reescritura de URLs, se modificará este archivo</span>',
+'L_CONFIG_ADVANCED_URL_REWRITE_ALERT'			=> 'Advertencia: ya existe un archivo «.htaccess» en la raíz de su instalación de PluXml. Si activa la reescritura de URLs, se modificará este archivo',
 'L_CONFIG_ADVANCED_GZIP'						=> 'Activar compresión GZIP',
 'L_CONFIG_ADVANCED_GZIP_HELP'					=> 'Permite comprimir las páginas para ahorrar ancho de banda, pero puede aumentar la carga del procesador',
 'L_CONFIG_ADVANCED_CAPCHA'						=> 'Activar protección nti-spam («CAPTCHA»)',
 'L_CONFIG_ADVANCED_ADMIN_KEY'					=> 'Clave de administración (URLs privadas)',
 'L_CONFIG_ADVANCED_KEY_HELP'					=> 'Deje este campo vacío para regenerar la clave',
-'L_CONFIG_ADVANCED_USERFOLDERS'					=> 'Utilizar carpetas diferentes para imágenes y documentos en cada usuario',
+'L_CONFIG_ADVANCED_USERFOLDERS'					=> 'Utilizar carpetas diferentes para medias en cada usuario',
 'L_HELP_SLASH_END'								=> 'No olvide la barra al final',
-'L_CONFIG_ADVANCED_PICS_FOLDER'					=> 'Ubicación de la carpeta de imágenes',
-'L_CONFIG_ADVANCED_DOCS_FOLDER'					=> 'Ubicación de la carpeta de documentos',
+'L_CONFIG_ADVANCED_MEDIAS_FOLDER'				=> 'Ubicación de la carpeta de medios',
 'L_CONFIG_ADVANCED_ARTS_FOLDER'					=> 'Ubicación de la carpeta de artículos',
 'L_CONFIG_ADVANCED_COMS_FOLDER'					=> 'Ubicación de la carpeta de comentarios',
 'L_CONFIG_ADVANCED_STATS_FOLDER'				=> 'Ubicación de la carpeta de páginas éstaticas',
@@ -351,6 +355,7 @@ $LANG = array(
 'L_CONFIG_ADVANCED_PLUGINS_FOLDER'				=> 'Ubicación de la carpeta de complementos',
 'L_CONFIG_ADVANCED_CONFIG_FOLDER'				=> 'Ubicación de la carpeta de configuración',
 'L_CONFIG_ADVANCED_UPDATE'						=> 'Guardar configuración avanzada',
+'L_CONFIG_CUSTOM_CSSADMIN_PATH'					=> 'Ubicación y nombre del archivo CSS personalizado del área de administración (opcional)',
 
 # parametres_base.php
 
@@ -513,7 +518,7 @@ $LANG = array(
 'L_MENU_CONFIG'									=> 'Parámetros',
 'L_MENU_PROFIL_TITLE'							=> 'Gestionar sus perfiles de usuario',
 'L_MENU_PROFIL'									=> 'Perfil',
-'L_WARNING_INSTALLATION_FILE'					=> '<p class="warning">Todavía existe el archivo «install.php» en la raíz de PluXml.<br />Por razones de seguridad, le sugerimos que lo elimine.</p>',
+'L_WARNING_INSTALLATION_FILE'					=> 'Todavía existe el archivo «install.php» en la raíz de PluXml.<br />Por razones de seguridad, le sugerimos que lo elimine.',
 
 # user.php
 'L_USER_UNKNOWN'								=> 'Usuario desconocido',

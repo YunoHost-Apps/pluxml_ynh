@@ -13,7 +13,7 @@ class plxUtils {
 	 * Renvoie la valeur de la variable ou la valeur par défaut passée en paramètre
 	 *
 	 * @param	var			string	variable à tester
-	 * @param	default		string	valeur par defaut
+	 * @param	default		string	valeur par défaut
 	 * @return	valeur de la variable ou valeur par défaut passée en paramètre
 	*/
 	public static function getValue(&$var, $default='') {
@@ -187,11 +187,14 @@ class plxUtils {
 
 		$size = explode('-',$size);
 		$placeholder = $placeholder!='' ? ' placeholder="'.$placeholder.'"' : '';
-		if($readonly)
-			echo '<input id="id_'.$name.'" name="'.$name.'" type="'.$type.'" class="readonly" value="'.$value.'" size="'.$size[0].'" maxlength="'.$size[1].'" readonly="readonly"'.$placeholder.' />'."\n";
-		else
-			echo '<input id="id_'.$name.'" name="'.$name.'" type="'.$type.'"'.($class!=''?' class="'.$class.'"':'').' value="'.$value.'" size="'.$size[0].'" maxlength="'.$size[1].'"'.$placeholder.' />'."\n";
-
+		if($type!='hidden') {
+			if($readonly)
+				echo '<input id="id_'.$name.'" name="'.$name.'" type="'.$type.'" class="readonly" value="'.$value.'" size="'.$size[0].'" maxlength="'.$size[1].'" readonly="readonly"'.$placeholder.' />'."\n";
+			else
+				echo '<input id="id_'.$name.'" name="'.$name.'" type="'.$type.'"'.($class!=''?' class="'.$class.'"':'').' value="'.$value.'" size="'.$size[0].'" maxlength="'.$size[1].'"'.$placeholder.' />'."\n";
+		} else {
+			echo '<input id="id_'.$name.'" name="'.$name.'" type="'.$type.'" value="'.$value.'" />'."\n";
+		}
 	}
 
 	/**
@@ -237,7 +240,7 @@ class plxUtils {
 	/**
 	 * Méthode qui teste si le module apache mod_rewrite est disponible
 	 *
-	 * @param	io			affiche à l'écran le resultat du test si à VRAI
+	 * @param	io			affiche à l'écran le résultat du test si à VRAI
 	 * @param	format		format d'affichage
 	 * @return	boolean		retourne vrai si le module apache mod_rewrite est disponible
 	 * @author	Stephane F
@@ -267,7 +270,7 @@ class plxUtils {
 	/**
 	 * Méthode qui teste si la fonction php mail est disponible
 	 *
-	 * @param	io			affiche à l'écran le resultat du test si à VRAI
+	 * @param	io			affiche à l'écran le résultat du test si à VRAI
 	 * @param	format		format d'affichage
 	 * @return	boolean		retourne vrai si la fonction php mail est disponible
 	 * @author	Stephane F
@@ -316,7 +319,7 @@ class plxUtils {
 	/**
 	 * Méthode qui formate une chaine de caractères en supprimant des caractères non valides
 	 *
-	 * @param	str			chaine de caracères à formater
+	 * @param	str			chaine de caractères à formater
 	 * @param	charset		charset à utiliser dans le formatage de la chaine (par défaut utf-8)
 	 * @return	string		chaine formatée
 	 **/
@@ -360,8 +363,8 @@ class plxUtils {
 	/**
 	 * Méthode qui convertit un chiffre en chaine de caractères sur une longueur de n caractères, completée par des 0 à gauche
 	 *
-	 * @param	num					chiffre à convertire
-	 * @param	length				longeur de la chaine à retourner
+	 * @param	num					chiffre à convertir
+	 * @param	length				longueur de la chaine à retourner
 	 * @return	string				chaine formatée
 	 **/
 	public static function formatRelatif($num, $lenght) {
@@ -607,6 +610,8 @@ class plxUtils {
 	 **/
 	public static function rel2abs($base, $html) {
 
+		// on protège les liens de type (href|src)="//" en doublant le caractère =
+		$html = preg_replace('@(href|src)=(["\']\/\/)@i', '\1==\2', $html);
 		// url des plugins
 		$html = preg_replace('@\<([^>]*) (href|src)=(["\'])[\.]/plugins@i', '<$1 $2=$3'.$base.'plugins', $html);
 		// generate server-only replacement for root-relative URLs
@@ -620,12 +625,14 @@ class plxUtils {
 		$html = preg_replace('@\<([^>]*) (href|src)=(["\'])([^:"]*|[^:"]*:[^/"][^"]*)(["\'])@i', '<\1 \2=\3'.$base.'\4\5', $html);
 		// unreplace fully qualified URLs with proto: that were wrongly added $base
 		$html = preg_replace('@\<([^>]*) (href|src)=(["\'])'.$base.'([a-zA-Z0-9]*):@i', '<\1 \2=\3\4:', $html);
+		// on rétablit les liens de type (href|src)="//" en remplaçant les caractères == par =
+		$html = preg_replace('@(href|src)==@i', '\1=', $html);
 		return $html;
 
 	}
 
 	/**
-	 * Méthode qui retourn la liste des langues disponibles dans un tableau
+	 * Méthode qui retourne la liste des langues disponibles dans un tableau
 	 *
 	 * @return	string		chaine de caractères modifiée
 	 * @author	Stephane F.
@@ -717,7 +724,7 @@ class plxUtils {
 		$title = $title ? ' title="'.$title.'"':'';
 		$class = $class ? ' '.$class:'';
 		$onclick = $onclick ? ' onclick="'.$onclick.'"':'';
-		$menu = '<li class="menu'.$active.$class.'"><a href="'.$href.'"'.$onclick.$title.'>'.$name.'</a>'.$extra.'</li>';
+		$menu = '<li id="mnu_'.plxUtils::title2url($name).'" class="menu'.$active.$class.'"><a href="'.$href.'"'.$onclick.$title.'>'.$name.$extra.'</a></li>';
 		return $menu;
 	}
 
@@ -837,7 +844,7 @@ class plxUtils {
 	/**
 	 * Protège une chaine contre un null byte
 	 *
-	 * @param	string  $text chaine à nettoyer
+	 * @param	string chaine à nettoyer
 	 * @return	string chaine nettoyée
 	*/
 	public static function nullbyteRemove($string) {
@@ -845,7 +852,7 @@ class plxUtils {
 	}
 
 	/**
-	 * Controle le nom d'un fichier ou d'un dossier
+	 * Contrôle le nom d'un fichier ou d'un dossier
 	 *
 	 * @param	string  nom d'un fichier
 	 * @return	boolean validité du nom du fichier ou du dossier
@@ -871,7 +878,7 @@ class plxUtils {
 	 * Formate le nom d'une miniature à partir d'un nom de fichier
 	 *
 	 * @param	string  nom d'un fichier
-	 * @return	string	nmo de la miniature au format fichier.tb.ext
+	 * @return	string	nom de la miniature au format fichier.tb.ext
 	*/
 	public static function thumbName($filename) {
 		if(preg_match('/^(.*\.)([^.]+)$/D', $filename, $matches)) {
@@ -889,9 +896,9 @@ class plxUtils {
 	 * @author	Frédéric Kaplon
 	 **/
 	public static function minify($buffer) {
-		/* Suprimme les commentaires */
+		/* Supprime les commentaires */
 		$buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-		/* Suprimme les tabs, espaces, saut de ligne, etc. */
+		/* Supprime les tabs, espaces, saut de ligne, etc. */
 		$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
 		return $buffer;
 	}
@@ -906,5 +913,14 @@ class plxUtils {
 		return $new;
 	}
 */
+
+	public static function debug($obj) {
+		echo "<pre>";
+		if(is_array($obj))
+			print_r($obj);
+		else
+			echo $obj;
+		echo "</pre>";
+	}
 }
 ?>

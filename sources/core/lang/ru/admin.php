@@ -2,11 +2,15 @@
 
 $LANG = array(
 
+'L_MENU'													=> 'меню',
 'L_UNKNOWN_ERROR'											=> 'Неизвестная ошибка',
 'L_CONFIRM_DELETE'											=> 'Подтвердите удаление ?',
 'L_SAVE_FILE'												=> 'Сохраните файл',
 'L_SAVE_FILE_SUCCESSFULLY'									=> 'Файл успешно сохранены',
 'L_SAVE_FILE_ERROR'											=> 'Ошибка при сохранении файла',
+'L_DELETE'													=> 'Удалить',
+'L_DELETE_FILE' 				    						=> 'Удалить файл',
+'L_DELETE_FOLDER'				   							=> 'Удалить папку',
 
 # class.plx.admin.php
 
@@ -116,6 +120,8 @@ $LANG = array(
 'L_ARTICLE_TITLE_HTMLTAG'									=> 'Мета-тег заголовка страницы "Title" (необязательно)',
 'L_ARTICLE_CHAPO_HIDE'										=> 'скрыть',
 'L_ARTICLE_CHAPO_DISPLAY'									=> 'показать',
+'L_ARTICLE'													=> 'статья',
+'L_ARTICLE_ID'												=> 'ID',
 
 # auth.php
 
@@ -156,7 +162,6 @@ $LANG = array(
 'L_OPTIONS'													=> 'Настроить',
 'L_NEW_CATEGORY'											=> 'Новая категория',
 'L_FOR_SELECTION'											=> 'Выбрать...',
-'L_DELETE'													=> 'Удалить',
 'L_CAT_APPLY_BUTTON'										=> 'Изменить список категорий',
 'L_CAT_UNKNOWN'												=> 'Неизвестная категория',
 
@@ -285,7 +290,7 @@ $LANG = array(
 'L_MEDIAS_DOCUMENTS'										=> 'Документы',
 'L_MEDIAS_ADD_FILE'											=> 'Добавить файл',
 'L_MEDIAS_DELETE_FOLDER'									=> 'Удалить папку',
-'L_MEDIAS_DELETE_FOLDER_CONFIRM'							=> 'Удалить папку и ее содержимое?',
+'L_MEDIAS_DELETE_FOLDER_CONFIRM'							=> 'Удалить папку и ее содержимое %s?',
 'L_MEDIAS_FOLDER'											=> 'Файл',
 'L_MEDIAS_NEW_FOLDER'										=> 'Новая папка',
 'L_MEDIAS_CREATE_FOLDER'									=> 'Создать папку',
@@ -323,7 +328,7 @@ $LANG = array(
 'L_CONFIG_VIEW_IMAGES'										=> 'Размер изображения (Ширина х Высота)',
 'L_CONFIG_VIEW_THUMBS'										=> 'Размер эскизов (Ширина х Высота)',
 'L_CONFIG_VIEW_HOMESTATIC'									=> 'Использовать статическую страницу как Главную страницу',
-'L_CONFIG_VIEW_HOMESTATIC_ACTIVE'							=> '<span class="alert">Внимание: Эта страница неактивна</span>',
+'L_CONFIG_VIEW_HOMESTATIC_ACTIVE'							=> 'Внимание: Эта страница неактивна',
 'L_CONFIG_VIEW_PLUXML_RESSOURCES'							=> 'Загрузка тем <a href="http://ressources.pluxml.org">ressources.pluxml.org</a>.',
 'L_CONFIG_VIEW_BYPAGE_FEEDS'								=> 'N° статьи или комментария в RSS-потоке',
 'L_CONFIG_VIEW_FEEDS_HEADLINE'								=> 'Отображать только заголовки статей в RSS-потоке',
@@ -337,16 +342,15 @@ $LANG = array(
 
 'L_CONFIG_ADVANCED_DESC'									=> 'Расширенные настройки (опытный пользователь)',
 'L_CONFIG_ADVANCED_URL_REWRITE'								=> 'Включить URL rewrite',
-'L_CONFIG_ADVANCED_URL_REWRITE_ALERT'						=> '<span class="alert">Внимание .htaccess файл уже присутствует в корневом каталоге вашего PluXml. При включении URL переписывания этот файл будет изменен</span>',
+'L_CONFIG_ADVANCED_URL_REWRITE_ALERT'						=> 'Внимание .htaccess файл уже присутствует в корневом каталоге вашего PluXml. При включении URL переписывания этот файл будет изменен',
 'L_CONFIG_ADVANCED_GZIP'									=> 'Включить GZIP сжатие',
 'L_CONFIG_ADVANCED_GZIP_HELP'								=> 'Это cделает возможным сжатие страниц для увеличения пропускной способности, но может увеличить использование процессора',
 'L_CONFIG_ADVANCED_CAPCHA'									=> 'Включить анти-спам Capcha',
 'L_CONFIG_ADVANCED_ADMIN_KEY'								=> 'Административный ключ (для приватных URL)',
 'L_CONFIG_ADVANCED_KEY_HELP'								=> 'Оставьте это поле пустым, чтобы восстановить ключ',
-'L_CONFIG_ADVANCED_USERFOLDERS'								=> 'Используйте отдельные изображения и документы папки для каждого пользователя',
+'L_CONFIG_ADVANCED_USERFOLDERS'								=> 'Используйте другую папку средств массовой информации для каждого пользователя',
 'L_HELP_SLASH_END'											=> 'Не забудьте слеш / в конце',
-'L_CONFIG_ADVANCED_PICS_FOLDER'								=> 'Папка для изображений',
-'L_CONFIG_ADVANCED_DOCS_FOLDER'								=> 'Папка для документов',
+'L_CONFIG_ADVANCED_MEDIAS_FOLDER'							=> 'Медиа место (папка)',
 'L_CONFIG_ADVANCED_ARTS_FOLDER'								=> 'Папка для статей',
 'L_CONFIG_ADVANCED_COMS_FOLDER'								=> 'Папка для комментариев',
 'L_CONFIG_ADVANCED_STATS_FOLDER'							=> 'Папка для статических страниц',
@@ -354,6 +358,7 @@ $LANG = array(
 'L_CONFIG_ADVANCED_PLUGINS_FOLDER'							=> 'Папка с плагинами',
 'L_CONFIG_ADVANCED_CONFIG_FOLDER'							=> 'Расположение файлов конфигурации (каталог)',
 'L_CONFIG_ADVANCED_UPDATE'									=> 'Сохранить дополнительные настройки',
+'L_CONFIG_CUSTOM_CSSADMIN_PATH'								=> 'Место и имя пользовательских файлов CSS области управления (опция)',
 
 # parametres_base.php
 
@@ -515,7 +520,7 @@ $LANG = array(
 'L_MENU_CONFIG'												=> 'Настройки',
 'L_MENU_PROFIL_TITLE'										=> 'Управление профилем пользователя',
 'L_MENU_PROFIL'												=> 'Профиль',
-'L_WARNING_INSTALLATION_FILE'								=> '<p class="warning">Внимание! Файл install.php все еще находится в корневой папке PluXml.<br />Из соображений безопасности настоятельно рекомендуем удалить его.</p>',
+'L_WARNING_INSTALLATION_FILE'								=> 'Внимание! Файл install.php все еще находится в корневой папке PluXml.<br />Из соображений безопасности настоятельно рекомендуем удалить его.',
 
 # user.php
 'L_USER_UNKNOWN'											=> 'Неизвестный пользователь',

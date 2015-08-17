@@ -1,12 +1,10 @@
 <?php include(dirname(__FILE__).'/header.php'); ?>
 
-<section>
+	<main class="main grid" role="main">
 
-	<div id="container">
+		<section class="col sml-12 med-8">
 
-		<div class="width-sidebar">
-
-			<article role="article" id="static-page-<?php echo $plxShow->staticId(); ?>">
+			<article class="article static" role="article" id="static-page-<?php echo $plxShow->staticId(); ?>">
 
 				<header>
 					<h1>
@@ -20,12 +18,10 @@
 
 			</article>
 
-		</div>
+		</section>
 
 		<?php include(dirname(__FILE__).'/sidebar.php'); ?>
 
-	</div>
-
-</section>
+	</main>
 
 <?php include(dirname(__FILE__).'/footer.php'); ?>

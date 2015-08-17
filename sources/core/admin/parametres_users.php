@@ -34,16 +34,26 @@ $aProfils = array(
 include(dirname(__FILE__).'/top.php');
 ?>
 
-<h2><?php echo L_CONFIG_USERS_TITLE; ?></h2>
-
-<?php eval($plxAdmin->plxPlugins->callHook('AdminUsersTop')) # Hook Plugins ?>
-
 <form action="parametres_users.php" method="post" id="form_users">
-	<table class="table">
+
+	<div class="inline-form action-bar">
+		<h2><?php echo L_CONFIG_USERS_TITLE; ?></h2>
+		<p>&nbsp;</p>
+		<?php plxUtils::printSelect('selection', array( '' => L_FOR_SELECTION, 'delete' => L_DELETE), '', false, 'no-margin', 'id_selection') ?>
+		<input type="submit" name="submit" value="<?php echo L_OK ?>" onclick="return confirmAction(this.form, 'id_selection', 'delete', 'idUser[]', '<?php echo L_CONFIRM_DELETE ?>')" />
+		<?php echo plxToken::getTokenPostMethod() ?>
+		&nbsp;&nbsp;&nbsp;
+		<input type="submit" name="update" value="<?php echo L_CONFIG_USERS_UPDATE ?>" />
+	</div>
+
+	<?php eval($plxAdmin->plxPlugins->callHook('AdminUsersTop')) # Hook Plugins ?>
+
+	<div class="scrollable-table">
+	<table id="users-table" class="full-width">
 	<thead>
 		<tr>
 			<th class="checkbox"><input type="checkbox" onclick="checkAll(this.form, 'idUser[]')" /></th>
-			<th class="title"><?php echo L_CONFIG_USERS_ID ?></th>
+			<th><?php echo L_CONFIG_USERS_ID.' '.L_CONFIG_USER ?></th>
 			<th><?php echo L_PROFIL_USER ?></th>
 			<th><?php echo L_PROFIL_LOGIN ?></th>
 			<th><?php echo L_PROFIL_PASSWORD ?></th>
@@ -61,12 +71,12 @@ include(dirname(__FILE__).'/top.php');
 			if (!$_user['delete']) {
 				echo '<tr class="line-'.($num%2).'">';
 				echo '<td><input type="checkbox" name="idUser[]" value="'.$_userid.'" /><input type="hidden" name="userNum[]" value="'.$_userid.'" /></td>';
-				echo '<td>Utilisateur '.$_userid.'</td><td>';
-				plxUtils::printInput($_userid.'_name', plxUtils::strCheck($_user['name']), 'text', '20-255');
+				echo '<td>'.$_userid.'</td><td>';
+				plxUtils::printInput($_userid.'_name', plxUtils::strCheck($_user['name']), 'text', '10-255');
 				echo '</td><td>';
-				plxUtils::printInput($_userid.'_login', plxUtils::strCheck($_user['login']), 'text', '11-255');
+				plxUtils::printInput($_userid.'_login', plxUtils::strCheck($_user['login']), 'text', '10-255');
 				echo '</td><td>';
-				plxUtils::printInput($_userid.'_password', '', 'password', '11-255');
+				plxUtils::printInput($_userid.'_password', '', 'password', '10-255');
 				echo '</td><td>';
 				if($_userid=='001') {
 					plxUtils::printInput($_userid.'_profil', $_user['profil'], 'hidden');
@@ -99,12 +109,12 @@ include(dirname(__FILE__).'/top.php');
 			<?php
 				echo '<input type="hidden" name="userNum[]" value="'.$new_userid.'" />';
 				plxUtils::printInput($new_userid.'_newuser', 'true', 'hidden');
-				plxUtils::printInput($new_userid.'_name', '', 'text', '20-255');
+				plxUtils::printInput($new_userid.'_name', '', 'text', '10-255');
 				plxUtils::printInput($new_userid.'_infos', '', 'hidden');
 				echo '</td><td>';
-				plxUtils::printInput($new_userid.'_login', '', 'text', '11-255');
+				plxUtils::printInput($new_userid.'_login', '', 'text', '10-255');
 				echo '</td><td>';
-				plxUtils::printInput($new_userid.'_password', '', 'password', '11-255');
+				plxUtils::printInput($new_userid.'_password', '', 'password', '10-255');
 				echo '</td><td>';
 				plxUtils::printSelect($new_userid.'_profil', $aProfils, PROFIL_WRITER);
 				echo '</td><td>';
@@ -115,14 +125,8 @@ include(dirname(__FILE__).'/top.php');
 		</tr>
 	</tbody>
 	</table>
-	<p class="center">
-		<?php echo plxToken::getTokenPostMethod() ?>
-		<input class="button update" type="submit" name="update" value="<?php echo L_CONFIG_USERS_UPDATE ?>" />
-	</p>
-	<p>
-		<?php plxUtils::printSelect('selection', array( '' => L_FOR_SELECTION, 'delete' => L_DELETE), '', false, '', 'id_selection') ?>
-		<input class="button submit" type="submit" name="submit" value="<?php echo L_OK ?>" onclick="return confirmAction(this.form, 'id_selection', 'delete', 'idUser[]', '<?php echo L_CONFIRM_DELETE ?>')" />
-	</p>
+	</div>
+
 </form>
 
 <?php

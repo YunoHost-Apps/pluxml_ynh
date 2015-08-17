@@ -1,0 +1,321 @@
+/*
+# ------------------ BEGIN LICENSE BLOCK ------------------
+#
+# This file is part of PluXml : http://www.pluxml.org
+#
+# Package:		theme.css
+# Copyright (c) 2014 PluXml
+# Authors		Jos, Stephane F.
+# Licensed under the GPL license.
+# See http://www.gnu.org/licenses/gpl.html
+#
+# ------------------- END LICENSE BLOCK -------------------
+*/
+
+.auth {
+	border:1px solid #aaa;
+	margin-top: 10%;
+	overflow: hidden;
+}
+.auth input[type="password"],
+.auth input[type="text"] {
+	color: #444;
+	font-size: 1.1rem;
+}
+.auth input[type="submit"] {
+	font-size: 1.1rem;
+}
+.auth .error {
+	background-color: #e43d29;
+	color: #eee;
+	padding: .4rem;
+	text-align: center;
+}
+.main.grid {
+	margin-right: 0;
+}
+.aside {
+	background-color: #222;
+	bottom: 0;
+	overflow: auto;
+	padding-right: 0;
+	position: fixed;
+	top: 0;
+}
+.aside,
+.aside a {
+	color: #eee;
+}
+.aside .header  {
+	line-height: 1.2rem;
+}
+.aside .header  a {
+	font-size: 0.9rem
+}
+.aside .profil {
+	background-color: #555;
+	border-top: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+.aside .header .unstyled-list {
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 1rem .4rem;
+}
+.aside .header .version {
+	color: #aaa;
+}
+.aside .menu.expanded .badge,
+.aside .menu.expanded .active a .badge {
+	background-color: #e43d29;
+	color: #fff;
+}
+.aside .menu.expanded li.active a,
+.aside .menu.expanded li.active:hover {
+	background-color: #fff;
+	color: #444;
+}
+.aside .menu.expanded li:hover {
+	background-color: #444;
+}
+.aside .menu-config {
+	background-color: #333;
+}
+.section {
+	margin-bottom: 2rem;
+	margin-top: 9rem;
+}
+.section .action-bar {
+	background-color: #eaeaea;
+	border-bottom: 1px solid #ddd;
+	left: 16.6666%;
+	margin-left: -1rem;
+	min-height: 6.667em;
+	padding: .5rem 1.2rem .7rem 1.2rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+.section .action-bar p,
+.section .action-bar ul {
+	margin: .2rem 0;
+}
+.section .action-bar h2 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+@media (max-width: 1023px) {
+	.section .action-bar {
+		left: 25%;
+	}
+}
+@media (max-width: 767px) {
+	.auth {
+		margin-top: 0;
+	}
+	.aside .header {
+		background-color: #555;
+		padding-top: 2.3rem;
+	}
+	.aside .header li {
+		display: inline;
+	}
+	.aside .header .unstyled-list {
+		padding: 0;
+	}
+	.aside .responsive-menu {
+		max-height: 200px;
+		overflow-y: auto;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 9999;
+	}
+	.aside .responsive-menu,
+	.aside .responsive-menu label {
+		background-color: #222;
+	}
+	.aside .profil {
+		border: none;
+	}
+	.aside,
+	.section .action-bar {
+		position: relative;
+	}
+	.section,
+	.section .action-bar {
+		left: 0;
+	}
+	.section .action-bar {
+		background-color: inherit;
+		margin: 0 0 1rem 0;
+		padding: 0;
+		z-index: inherit;
+	}
+	.section {
+		margin-top: 1rem;
+		padding: 0 .5rem 0 1.5rem;
+	}
+}
+.selected {
+	color: #444;
+}
+.p_page {
+	display: inline-block;
+}
+.p_page:first-letter {
+	text-transform: uppercase;
+}
+a.btnDelete,
+.divtitle  {
+	display: inline;
+}
+button,
+input,
+select,
+textarea {
+	width: auto;
+}
+tr:nth-child(even) {
+	background-color: #eee;
+}
+tr:nth-child(even):hover {
+	background-color: #fff8dc;
+}
+#articles-table td:nth-child(4),
+#comments-table td:nth-child(3),
+#medias-table td:nth-child(3),
+#plugins-table td:nth-child(3) {
+	width: 100%;
+	min-width: 200px;
+}
+#plugins-table img,
+#medias-table img {
+	min-width: 48px;
+}
+#medias-table {
+	margin-top: 10px;
+}
+#id_day, #id_month {
+	width: 2.1rem;
+}
+#id_year, #id_time {
+	width: 3.4rem;
+}
+#id_link {
+	width:100%;
+}
+.alert {
+	margin: 0 0 1rem;
+}
+.help {
+	cursor: help;
+}
+form .col {
+	position: inherit;
+}
+a.hint {
+	background-image: url(images/help.png);
+	width: 16px;
+}
+a.folder {
+	background: url(images/folder.png) 8px no-repeat;
+	width: 24px;
+}
+a.folder::before {
+  content: "+";
+  color: #808080;
+}
+a.hint, a.folder {
+	cursor: help;
+	display: inline-block;
+	height: 16px;
+	text-decoration: none;
+}
+a.hint span, a.folder span {
+	background-color: #a0a0a0;
+	border: 1px solid #ccc;
+	color:#fff;
+	display: none;
+	font-size: .8rem;
+	margin-left: 1.3rem;
+	margin-top: 1.3rem;
+	max-width: 300px;
+	padding: .4rem;
+	position: absolute;
+	z-index: 9999;
+}
+a.hint:hover span,
+a.hint:focus span,
+a.folder:hover span,
+a.folder:focus span  {
+	display: inline-block;
+}
+blockquote.type-admin {
+	background-color: #F0F8FF;
+	padding: 2px 5px;
+}
+
+.in-action-bar {
+	top: 0;
+	margin-top: 4em;
+	position: fixed;
+	z-index: 99999;
+	width: 100%;
+}
+#plugin .section,
+#parametres_plugin .section,
+#parametres_pluginhelp .section {
+	margin-top: 7rem;
+}
+@media (max-width: 767px) {
+	.section .action-bar {
+		text-align: center;
+	}
+	.in-action-bar {
+		position: absolute;
+		margin-top: 3.5rem;
+		z-index: -1;
+	}
+	#plugin .section,
+	#parametres_plugin .section,
+	#parametres_plugincss .section,
+	#parametres_pluginhelp .section {
+		margin-top: 1rem;
+	}
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"] {
+		margin-top: 3px;
+	}
+}
+.notification {
+	position:fixed;
+	top:-1px;
+	z-index:999999;
+	text-align: center;
+	margin: 0 auto;
+	padding: 2px 15px 2px 15px;
+	border: 1px solid;
+	font-size: 13px;
+	font-weight:bold;
+	color:#000;
+}
+.error {
+	background-color: #ffcfcf;
+	border-color: #df8f8f;
+}
+.success {
+	background-color: #fff1a8;
+	border-color: #e6db55;
+}
+.warning {
+	margin: 10px 320px 10px 0;
+	padding: 10px 5px 10px 20px;
+	border: 1px solid #df8f8f;
+	font-size: 13px;
+	width:100%;
+	background-color: #ffcfcf;
+}

@@ -16,32 +16,36 @@ $plxAdmin->checkProfil(PROFIL_ADMIN);
 include(dirname(__FILE__).'/top.php');
 ?>
 
-<h2><?php echo L_CONFIG_INFOS_TITLE ?></h2>
+<div class="inline-form action-bar">
+	<h2><?php echo L_CONFIG_INFOS_TITLE ?></h2>
+	<p><strong><?php echo L_PLUXML_CHECK_VERSION ?></strong></p>
+	<p><span class="text-red"><?php echo $plxAdmin->checkMaj(); ?></span></p>
+</div>
 
 <p><?php echo L_CONFIG_INFOS_DESCRIPTION ?></p>
-<div class="panel">
-	<ul>
-		<li><strong><?php echo L_PLUXML_VERSION; ?> <?php echo $plxAdmin->version; ?> (<?php echo L_INFO_CHARSET ?> <?php echo PLX_CHARSET ?>)</strong></li>
-		<li><?php echo L_INFO_PHP_VERSION; ?> : <?php echo phpversion(); ?></li>
-		<li><?php echo L_INFO_MAGIC_QUOTES; ?> : <?php echo get_magic_quotes_gpc(); ?></li>
-		<?php plxUtils::testWrite(PLX_ROOT.PLX_CONFIG_PATH); ?>
-		<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['racine_articles']); ?>
-		<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['racine_commentaires']); ?>
-		<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['racine_statiques']); ?>
-		<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['images']); ?>
-		<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['documents']); ?>
-		<?php plxUtils::testModReWrite() ?>
-		<?php plxUtils::testLibGD() ?>
-		<?php plxUtils::testMail() ?>
-		<li><?php echo L_CONFIG_INFOS_NB_CATS ?> <?php echo sizeof($plxAdmin->aCats); ?></li>
-		<li><?php echo L_CONFIG_INFOS_NB_STATICS ?> <?php echo sizeof($plxAdmin->aStats); ?></li>
-		<li><?php echo L_CONFIG_INFOS_WRITER ?> <?php echo $plxAdmin->aUsers[$_SESSION['user']]['name'] ?></li>
-	</ul>
-</div>
-<div class="panel">
-	<strong><?php echo L_PLUXML_CHECK_VERSION ?></strong>
-	<p><?php echo $plxAdmin->checkMaj(); ?></p>
-</div>
+
+<p><strong><?php echo L_PLUXML_VERSION; ?> <?php echo $plxAdmin->version; ?> (<?php echo L_INFO_CHARSET ?> <?php echo PLX_CHARSET ?>)</strong></p>
+<ul class="unstyled-list">
+	<li><?php echo L_INFO_PHP_VERSION; ?> : <?php echo phpversion(); ?></li>
+	<?php if (!empty($_SERVER['SERVER_SOFTWARE'])) { ?>
+	<li><?php echo $_SERVER['SERVER_SOFTWARE']; ?></li>
+	<?php } ?>  
+</ul>
+<ul class="unstyled-list">
+	<li><?php echo L_INFO_MAGIC_QUOTES; ?> : <?php echo get_magic_quotes_gpc(); ?></li>
+	<?php plxUtils::testWrite(PLX_ROOT.PLX_CONFIG_PATH); ?>
+	<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['racine_articles']); ?>
+	<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['racine_commentaires']); ?>
+	<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['racine_statiques']); ?>
+	<?php plxUtils::testWrite(PLX_ROOT.$plxAdmin->aConf['medias']); ?>
+	<?php plxUtils::testModReWrite() ?>
+	<?php plxUtils::testLibGD() ?>
+	<?php plxUtils::testMail() ?>
+</ul>
+<p><?php echo L_CONFIG_INFOS_NB_CATS ?> <?php echo sizeof($plxAdmin->aCats); ?></p>
+<p><?php echo L_CONFIG_INFOS_NB_STATICS ?> <?php echo sizeof($plxAdmin->aStats); ?></p>
+<p><?php echo L_CONFIG_INFOS_WRITER ?> <?php echo $plxAdmin->aUsers[$_SESSION['user']]['name'] ?></p>
+
 <?php eval($plxAdmin->plxPlugins->callHook('AdminSettingsInfos')) ?>
 <?php
 # On inclut le footer

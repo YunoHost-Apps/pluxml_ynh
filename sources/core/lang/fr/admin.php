@@ -2,11 +2,16 @@
 
 $LANG = array(
 
+'L_MENU'							=> 'Menu',
 'L_UNKNOWN_ERROR'					=> 'Erreur inconnue',
 'L_CONFIRM_DELETE'					=> 'Confirmer la suppression ?',
 'L_SAVE_FILE'						=> 'Sauvegarder le fichier',
 'L_SAVE_FILE_SUCCESSFULLY'			=> 'Fichier enregistré avec succès',
 'L_SAVE_FILE_ERROR'					=> 'Erreur pendant l\'enregistrement du fichier',
+
+'L_DELETE' 						    => 'Supprimer',
+'L_DELETE_FILE' 				    => 'Supprimer fichier',
+'L_DELETE_FOLDER'				    => 'Supprimer dossier',
 
 # class.plx.admin.php
 
@@ -116,6 +121,8 @@ $LANG = array(
 'L_ARTICLE_TITLE_HTMLTAG'			=> 'Contenu balise title (option)',
 'L_ARTICLE_CHAPO_HIDE'				=> 'masquer',
 'L_ARTICLE_CHAPO_DISPLAY'			=> 'afficher',
+'L_ARTICLE'							=> 'article',
+'L_ARTICLE_ID'						=> 'Identifiant',
 
 # auth.php
 
@@ -156,13 +163,12 @@ $LANG = array(
 'L_OPTIONS'							=> 'Options',
 'L_NEW_CATEGORY' 					=> 'Nouvelle catégorie',
 'L_FOR_SELECTION' 					=> 'Pour la sélection...',
-'L_DELETE' 						    => 'Supprimer',
 'L_CAT_APPLY_BUTTON'				=> 'Modifier la liste des catégories',
-'L_CAT_UNKNOWN'						=> 'catégorie ionconnue',
+'L_CAT_UNKNOWN'						=> 'catégorie inconnue',
 
 # categorie.php
 
-'L_EDITCAT_PAGE_TITLE'				=> 'Edition des options de la catégorie',
+'L_EDITCAT_PAGE_TITLE'				=> 'Édition des options de la catégorie',
 'L_EDITCAT_DESCRIPTION'				=> 'Description',
 'L_EDITCAT_DISPLAY_HOMEPAGE'		=> 'Afficher les articles de cette catégorie sur la page d\'accueil',
 'L_EDITCAT_TEMPLATE'				=> 'Template',
@@ -282,7 +288,7 @@ $LANG = array(
 'L_MEDIAS_DOCUMENTS'				=> 'Documents',
 'L_MEDIAS_ADD_FILE'					=> 'Ajouter fichiers',
 'L_MEDIAS_DELETE_FOLDER'			=> 'Supprimer',
-'L_MEDIAS_DELETE_FOLDER_CONFIRM'	=> 'Supprimer ce dossier et son contenu ?',
+'L_MEDIAS_DELETE_FOLDER_CONFIRM'	=> 'Supprimer le dossier %s et son contenu ?',
 'L_MEDIAS_FOLDER'					=> 'Dossier',
 'L_MEDIAS_NEW_FOLDER'				=> 'Nouveau dossier',
 'L_MEDIAS_CREATE_FOLDER'			=> 'Créer',
@@ -320,10 +326,10 @@ $LANG = array(
 'L_CONFIG_VIEW_IMAGES'				=> 'Taille des images (largeur x hauteur)',
 'L_CONFIG_VIEW_THUMBS'				=> 'Taille des miniatures (largeur x hauteur)',
 'L_CONFIG_VIEW_HOMESTATIC'			=> 'Utiliser une page statique comme page d\'accueil',
-'L_CONFIG_VIEW_HOMESTATIC_ACTIVE'	=> '<span class="alert">Attention cette page est inactive</span>',
+'L_CONFIG_VIEW_HOMESTATIC_ACTIVE'	=> 'Attention cette page est inactive',
 'L_CONFIG_VIEW_PLUXML_RESSOURCES'	=> 'Télécharger d\'autres thèmes sur <a href="http://ressources.pluxml.org">ressources.pluxml.org</a>.',
 'L_CONFIG_VIEW_BYPAGE_FEEDS'		=> 'Nombre d\'articles/commentaires affichés sur les fils Rss',
-'L_CONFIG_VIEW_FEEDS_HEADLINE'		=> 'Afficher que le chapô dans les flux Rss des articles',
+'L_CONFIG_VIEW_FEEDS_HEADLINE'		=> 'Afficher uniquement le chapô dans les flux Rss des articles',
 'L_CONFIG_VIEW_FEEDS_HEADLINE_HELP'	=> 'Si le chapô est vide, le contenu est affiché',
 'L_CONFIG_VIEW_FEEDS_FOOTER'		=> 'Texte à ajouter comme signature au bas de chaque flux Rss des articles',
 'L_CONFIG_VIEW_UPDATE'				=> 'Modifier les options d\'affichage',
@@ -334,16 +340,15 @@ $LANG = array(
 
 'L_CONFIG_ADVANCED_DESC'			=> 'Configuration avancée',
 'L_CONFIG_ADVANCED_URL_REWRITE'		=> 'Activer la réécriture d\'urls',
-'L_CONFIG_ADVANCED_URL_REWRITE_ALERT'=> '<span class="alert">Attention un fichier .htaccess est déjà présent à la racine de votre PluXml. En activant la réécriture d\'url ce fichier sera modifié</span>',
+'L_CONFIG_ADVANCED_URL_REWRITE_ALERT'=> 'Attention un fichier .htaccess est déjà présent à la racine de votre PluXml. En activant la réécriture d\'url ce fichier sera modifié',
 'L_CONFIG_ADVANCED_GZIP'			=> 'Activer la compression GZIP',
 'L_CONFIG_ADVANCED_GZIP_HELP'		=> 'Permet de compresser les pages pour économiser de la bande passante, cependant cela peut augmenter la charge processeur',
 'L_CONFIG_ADVANCED_CAPCHA'			=> 'Activer le capcha anti-spam',
 'L_CONFIG_ADVANCED_ADMIN_KEY'		=> 'Clef d\'administration (URLs privés)',
-'L_CONFIG_ADVANCED_KEY_HELP'		=> 'Vider ce champs pour regénérer la clef',
-'L_CONFIG_ADVANCED_USERFOLDERS'		=> 'Utiliser un dossier images et documents différent pour chaque utilisateur',
+'L_CONFIG_ADVANCED_KEY_HELP'		=> 'Vider ce champs pour régénérer la clef',
+'L_CONFIG_ADVANCED_USERFOLDERS'		=> 'Utiliser un dossier medias différent pour chaque utilisateur',
 'L_HELP_SLASH_END'					=> 'Ne pas oublier le slash à la fin',
-'L_CONFIG_ADVANCED_PICS_FOLDER'		=> 'Emplacement des images (dossier)',
-'L_CONFIG_ADVANCED_DOCS_FOLDER'		=> 'Emplacement des documents (dossier)',
+'L_CONFIG_ADVANCED_MEDIAS_FOLDER'	=> 'Emplacement des médias (dossier)',
 'L_CONFIG_ADVANCED_ARTS_FOLDER'		=> 'Emplacement des articles (dossier)',
 'L_CONFIG_ADVANCED_COMS_FOLDER'		=> 'Emplacement des commentaires (dossier)',
 'L_CONFIG_ADVANCED_STATS_FOLDER'	=> 'Emplacement des pages statiques (dossier)',
@@ -351,6 +356,7 @@ $LANG = array(
 'L_CONFIG_ADVANCED_PLUGINS_FOLDER'	=> 'Emplacement des plugins (dossier)',
 'L_CONFIG_ADVANCED_CONFIG_FOLDER'	=> 'Emplacement des fichiers de configuration (dossier)',
 'L_CONFIG_ADVANCED_UPDATE'			=> 'Modifier la configuration avancée',
+'L_CONFIG_CUSTOM_CSSADMIN_PATH'		=> 'Emplacement et nom du fichier css personnel pour la personnalisation de l\'interface d\'administration (option)',
 
 # parametres_base.php
 
@@ -362,7 +368,7 @@ $LANG = array(
 'L_CONFIG_BASE_TIMEZONE'			=> 'Fuseau horaire',
 'L_CONFIG_BASE_ALLOW_COMMENTS'		=> 'Autoriser les commentaires',
 'L_CONFIG_BASE_MODERATE_COMMENTS'	=> 'Modérer les commentaires à la création',
-'L_CONFIG_BASE_MODERATE_ARTICLES'	=> 'Modérer les articles pour les profils Rédacteur et Editeur',
+'L_CONFIG_BASE_MODERATE_ARTICLES'	=> 'Modérer les articles pour les profils Rédacteur et Éditeur',
 'L_CONFIG_BASE_UPDATE'				=> 'Modifier la configuration de base',
 'L_CONFIG_META_DESCRIPTION'			=> 'Contenu de la balise meta "description" du site (optionnel)',
 'L_CONFIG_META_KEYWORDS'			=> 'Contenu de la balises meta "keywords" du site (optionnel)',
@@ -390,8 +396,8 @@ $LANG = array(
 # parametres_users.php
 
 'L_CONFIG_USERS_TITLE'				=> 'Gestion des utilisateurs',
-'L_CONFIG_USER'						=> 'Utilisateur',
-'L_CONFIG_USERS_ID'					=> 'Numéro d\'utilisateur',
+'L_CONFIG_USER'						=> 'utilisateur',
+'L_CONFIG_USERS_ID'					=> 'Identifiant',
 'L_CONFIG_USERS_ACTIVE'				=> 'Actif',
 'L_CONFIG_USERS_ACTION'				=> 'Action',
 'L_CONFIG_USERS_NEW'				=> 'Nouvel utilisateur',
@@ -475,7 +481,7 @@ $LANG = array(
 'L_STATICS_TEMPLATE_FIELD'			=> 'Template',
 'L_STATICS_PAGE_HOME'				=> 'Définir en tant que page d\'accueil',
 'L_STATICS_HOME_PAGE' 			 	=> 'Page<br />d\'accueil',
-'L_PAGE'							=> 'Page',
+'L_PAGE'							=> 'page',
 'L_VIEW'							=> 'Voir',
 'L_STATICS_SRC_TITLE'				=> 'Éditer le code source de cette page',
 'L_STATICS_SRC'						=> 'Éditer',
@@ -487,7 +493,7 @@ $LANG = array(
 'L_PROFIL_ADMIN'					=> 'Administrateur',
 'L_PROFIL_MANAGER'					=> 'Gestionnaire',
 'L_PROFIL_MODERATOR'				=> 'Modérateur',
-'L_PROFIL_EDITOR'					=> 'Editeur',
+'L_PROFIL_EDITOR'					=> 'Éditeur',
 'L_PROFIL_WRITER'					=> 'Rédacteur',
 'L_ADMIN'							=> '- Administration',
 'L_LOGIN'							=> 'Connecté en tant que',
@@ -505,7 +511,7 @@ $LANG = array(
 'L_MENU_STATICS'					=> 'Pages statiques',
 'L_MENU_COMMENTS_TITLE'				=> 'Liste et modification des commentaires',
 'L_MENU_COMMENTS'					=> 'Commentaires',
-'L_MENU_MEDIAS_TITLE'				=> 'Uploader et insérer un média',
+'L_MENU_MEDIAS_TITLE'				=> 'Télécharger et insérer un média',
 'L_MENU_MEDIAS'						=> 'Médias',
 'L_MENU_CATEGORIES_TITLE'			=> 'Créer, gérer, éditer les catégories',
 'L_MENU_CATEGORIES'					=> 'Catégories',
@@ -513,7 +519,7 @@ $LANG = array(
 'L_MENU_CONFIG'						=> 'Paramètres',
 'L_MENU_PROFIL_TITLE'				=> 'Gérer votre profil utilisateur',
 'L_MENU_PROFIL'						=> 'Profil',
-'L_WARNING_INSTALLATION_FILE'		=> '<p class="warning">Le fichier install.php est présent à la racine de votre PluXml.<br />Pour des raisons de sécurité, il est fortement conseillé de le supprimer.</p>',
+'L_WARNING_INSTALLATION_FILE'		=> 'Le fichier install.php est présent à la racine de votre PluXml.<br />Pour des raisons de sécurité, il est fortement conseillé de le supprimer.',
 
 # user.php
 'L_USER_UNKNOWN'					=> 'Utilisateur inconnu',
@@ -521,7 +527,7 @@ $LANG = array(
 'L_USER_MAIL'						=> 'Adresse email',
 'L_USER_INFOS'						=> 'Informations',
 'L_USER_UPDATE'						=> 'Mettre à jour cet utilisateur',
-'L_USER_PAGE_TITLE'					=> 'Edition des options de l\'utilisateur',
+'L_USER_PAGE_TITLE'					=> 'Édition des options de l\'utilisateur',
 'L_USER_BACK_TO_PAGE'				=> 'Retour à la liste des utilisateurs',
 
 #
