@@ -3,7 +3,7 @@
 #
 # This file is part of PluXml : http://www.pluxml.org
 #
-# Copyright (c) 2010-2013 Stephane Ferrari and contributors
+# Copyright (c) 2010-2015 Stephane Ferrari and contributors
 # Copyright (c) 2008-2009 Florent MONTHEL and contributors
 # Copyright (c) 2006-2008 Anthony GUERIN
 # Licensed under the GPL license.
@@ -58,7 +58,7 @@ ob_implicit_flush(0);
 
 # Traitements du thème
 if($plxMotor->style == '' or !is_dir(PLX_ROOT.$plxMotor->aConf['racine_themes'].$plxMotor->style)) {
-	header('Content-Type: text/plain');
+	header('Content-Type: text/plain; charset='.PLX_CHARSET);
 	echo L_ERR_THEME_NOTFOUND.' ('.PLX_ROOT.$plxMotor->aConf['racine_themes'].$plxMotor->style.') !';
 } elseif(file_exists(PLX_ROOT.$plxMotor->aConf['racine_themes'].$plxMotor->style.'/'.$plxMotor->template)) {
 	# On impose le charset
@@ -66,7 +66,7 @@ if($plxMotor->style == '' or !is_dir(PLX_ROOT.$plxMotor->aConf['racine_themes'].
 	# Insertion du template
 	include(PLX_ROOT.$plxMotor->aConf['racine_themes'].$plxMotor->style.'/'.$plxMotor->template);
 } else {
-	header('Content-Type: text/plain');
+	header('Content-Type: text/plain; charset='.PLX_CHARSET);
 	echo L_ERR_FILE_NOTFOUND.' ('.PLX_ROOT.$plxMotor->aConf['racine_themes'].$plxMotor->style.'/'.$plxMotor->template.') !';
 }
 

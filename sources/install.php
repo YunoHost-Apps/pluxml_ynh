@@ -3,7 +3,7 @@
 #
 # This file is part of PluXml : http://www.pluxml.org
 #
-# Copyright (c) 2010-2013 Stephane Ferrari and contributors
+# Copyright (c) 2010-2015 Stephane Ferrari and contributors
 # Copyright (c) 2008-2009 Florent MONTHEL and contributors
 # Copyright (c) 2006-2008 Anthony GUERIN
 # Licensed under the GPL license.
@@ -53,13 +53,11 @@ if(file_exists(path('XMLFILE_PARAMETERS'))) {
 # Control du token du formulaire
 plxToken::validateFormToken($_POST);
 
-# Vérification de l'existence des dossiers data/images et data/documents
-if(!is_dir(PLX_ROOT.'data/images')) {
-	@mkdir(PLX_ROOT.'data/images',0755,true);
+# Vérification de l'existence des dossiers médias
+if(!is_dir(PLX_ROOT.'data/medias')) {
+	@mkdir(PLX_ROOT.'data/medias',0755,true);
 }
-if(!is_dir(PLX_ROOT.'data/documents')) {
-	@mkdir(PLX_ROOT.'data/documents',0755,true);
-}
+
 # Vérification de l'existence du dossier data/configuration/plugins
 if(!is_dir(PLX_ROOT.PLX_CONFIG_PATH.'plugins')) {
 	@mkdir(PLX_ROOT.PLX_CONFIG_PATH.'plugins',0755,true);
@@ -103,8 +101,7 @@ $config = array('title'=>'PluXml',
 				'miniatures_l'=>200,
 				'miniatures_h'=>100,
 				'thumbs'=>1,
-				'images'=>'data/images/',
-				'documents'=>'data/documents/',
+				'medias'=>'data/medias/',
 				'racine_articles'=>'data/articles/',
 				'racine_commentaires'=>'data/commentaires/',
 				'racine_statiques'=>'data/statiques/',
@@ -119,7 +116,8 @@ $config = array('title'=>'PluXml',
 				'version'=>$version,
 				'default_lang'=>$lang,
 				'userfolders'=>0,
-				'display_empty_cat'=>0
+				'display_empty_cat'=>0,
+				'custom_admincss_file'=>''
 				);
 
 function install($content, $config) {
@@ -246,66 +244,119 @@ else {
 }
 plxUtils::cleanHeaders();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
+
+<!DOCTYPE html>
+
 <head>
+	<meta charset="<?php echo strtolower(PLX_CHARSET) ?>" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
 	<title><?php echo L_PLUXML_INSTALLATION.' '.L_VERSION.' '.$version ?></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo strtolower(PLX_CHARSET) ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo PLX_CORE ?>admin/theme/reset.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<?php echo PLX_CORE ?>admin/theme/base.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<?php echo PLX_CORE ?>admin/theme/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<?php echo PLX_CORE ?>admin/theme/plucss.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<?php echo PLX_CORE ?>admin/theme/theme.css" media="screen" />
 </head>
+
 <body onload="document.forms[1].name.focus();">
 
-<div id="sidebar">
-</div>
+	<main class="main grid">
 
-<div id="content">
-	<h2><?php echo L_PLUXML_VERSION.' '.$version ?> - <?php echo L_INSTALL_TITLE ?></h2>
-	<?php if($msg!='') echo '<p class="warning error">'.$msg.'</p>'; ?>
-	<form action="install.php" method="post">
-	<fieldset class="panel">
-		<p class="field"><label for="id_default_lang"><?php echo L_SELECT_LANG ?>&nbsp;:</label></p>
-		<?php plxUtils::printSelect('default_lang', plxUtils::getLangs(), $lang) ?>&nbsp;
-		<input type="submit" name="select_lang" value="<?php echo L_INPUT_CHANGE ?>" />
-		<?php echo plxToken::getTokenPostMethod() ?>
-	</fieldset>
-	</form>
-	<form action="install.php" method="post">
-	<fieldset class="panel">
-		<p class="field"><label for="id_name"><?php echo L_USERNAME ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('name', $name, 'text', '20-255') ?>
-		<p class="field"><label for="id_login"><?php echo L_LOGIN ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('login', $login, 'text', '20-255') ?>
-		<p class="field"><label for="id_pwd"><?php echo L_PASSWORD ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('pwd', '', 'password', '20-255') ?>
-		<p class="field"><label for="id_pwd2"><?php echo L_PASSWORD_CONFIRMATION ?>&nbsp;:</label></p>
-		<?php plxUtils::printInput('pwd2', '', 'password', '20-255') ?>
-		<p class="field"><label for="id_timezone"><?php echo L_TIMEZONE ?>&nbsp;:</label></p>
-		<?php plxUtils::printSelect('timezone', plxTimezones::timezones(), $timezone); ?>
-		<p><input type="submit" name="install" value="<?php echo L_INPUT_INSTALL ?>" /></p>
-		<?php plxUtils::printInput('default_lang', $lang, 'hidden') ?>
-		<?php echo plxToken::getTokenPostMethod() ?>
-	</fieldset>
-	</form>
-	<div class="panel">
-		<ul>
-			<li><strong><?php echo L_PLUXML_VERSION; ?> <?php echo $version; ?> (<?php echo L_INFO_CHARSET ?> <?php echo PLX_CHARSET ?>)</strong></li>
-			<li><?php echo L_INFO_PHP_VERSION.' : '.phpversion() ?></li>
-			<li><?php echo L_INFO_MAGIC_QUOTES.' : '.get_magic_quotes_gpc() ?></li>
-			<?php plxUtils::testWrite(PLX_ROOT.PLX_CONFIG_PATH) ?>
-			<?php plxUtils::testWrite(PLX_ROOT.$config['racine_articles']) ?>
-			<?php plxUtils::testWrite(PLX_ROOT.$config['racine_commentaires']) ?>
-			<?php plxUtils::testWrite(PLX_ROOT.$config['racine_statiques']) ?>
-			<?php plxUtils::testWrite(PLX_ROOT.$config['images']) ?>
-			<?php plxUtils::testWrite(PLX_ROOT.$config['documents']) ?>
-			<?php plxUtils::testModReWrite() ?>
-			<?php plxUtils::testLibGD() ?>
-			<?php plxUtils::testMail() ?>
-		</ul>
-	</div>
-</div>
+		<aside class="aside col sml-12 med-3 lrg-2">
+
+		</aside>
+
+		<section class="section col sml-12 med-9 med-offset-3 lrg-10 lrg-offset-2" style="margin-top: 0">
+
+			<header>
+
+				<h1><?php echo L_PLUXML_VERSION.' '.$version ?> - <?php echo L_INSTALL_TITLE ?></h1>
+
+			</header>
+
+			<?php if($msg!='') echo '<div class="alert red">'.$msg.'</div>'; ?>
+
+			<form action="install.php" method="post">
+
+				<fieldset>
+
+					<div class="grid">
+						<div class="col sml-12 med-5 label-centered">
+							<label for="id_default_lang"><?php echo L_SELECT_LANG ?>&nbsp;:</label>
+						</div>
+						<div class="col sml-12 med-7">
+							<?php plxUtils::printSelect('default_lang', plxUtils::getLangs(), $lang) ?>&nbsp;
+							<input type="submit" name="select_lang" value="<?php echo L_INPUT_CHANGE ?>" />
+							<?php echo plxToken::getTokenPostMethod() ?>
+						</div>
+					</div>
+					<div class="grid">
+						<div class="col sml-12 med-5 label-centered">
+							<label for="id_name"><?php echo L_USERNAME ?>&nbsp;:</label>
+						</div>
+						<div class="col sml-12 med-7">
+							<?php plxUtils::printInput('name', $name, 'text', '20-255') ?>
+						</div>
+					</div>
+					<div class="grid">
+						<div class="col sml-12 med-5 label-centered">
+							<label for="id_login"><?php echo L_LOGIN ?>&nbsp;:</label>
+						</div>
+						<div class="col sml-12 med-7">
+							<?php plxUtils::printInput('login', $login, 'text', '20-255') ?>
+						</div>
+					</div>
+					<div class="grid">
+						<div class="col sml-12 med-5 label-centered">
+							<label for="id_pwd"><?php echo L_PASSWORD ?>&nbsp;:</label>
+						</div>
+						<div class="col sml-12 med-7">
+							<?php plxUtils::printInput('pwd', '', 'password', '20-255') ?>
+						</div>
+					</div>
+					<div class="grid">
+						<div class="col sml-12 med-5 label-centered">
+							<label for="id_pwd2"><?php echo L_PASSWORD_CONFIRMATION ?>&nbsp;:</label>
+						</div>
+						<div class="col sml-12 med-7">
+							<?php plxUtils::printInput('pwd2', '', 'password', '20-255') ?>
+						</div>
+					</div>
+					<div class="grid">
+						<div class="col sml-12 med-5 label-centered">
+							<label for="id_timezone"><?php echo L_TIMEZONE ?>&nbsp;:</label>
+						</div>
+						<div class="col sml-12 med-7">
+							<?php plxUtils::printSelect('timezone', plxTimezones::timezones(), $timezone); ?>
+						</div>
+					</div>
+
+					<ul class="unstyled-list">
+						<li><strong><?php echo L_PLUXML_VERSION; ?> <?php echo $version; ?> (<?php echo L_INFO_CHARSET ?> <?php echo PLX_CHARSET ?>)</strong></li>
+						<li><?php echo L_INFO_PHP_VERSION.' : '.phpversion() ?></li>
+						<?php if (!empty($_SERVER['SERVER_SOFTWARE'])) { ?>
+						<li><?php echo $_SERVER['SERVER_SOFTWARE']; ?></li>
+						<?php } ?>  
+						<li><?php echo L_INFO_MAGIC_QUOTES.' : '.get_magic_quotes_gpc() ?></li>
+						<?php plxUtils::testWrite(PLX_ROOT.PLX_CONFIG_PATH) ?>
+						<?php plxUtils::testWrite(PLX_ROOT.$config['racine_articles']) ?>
+						<?php plxUtils::testWrite(PLX_ROOT.$config['racine_commentaires']) ?>
+						<?php plxUtils::testWrite(PLX_ROOT.$config['racine_statiques']) ?>
+						<?php plxUtils::testWrite(PLX_ROOT.$config['medias']) ?>
+						<?php plxUtils::testModReWrite() ?>
+						<?php plxUtils::testLibGD() ?>
+						<?php plxUtils::testMail() ?>
+					</ul>
+
+					<input type="submit" name="install" value="<?php echo L_INPUT_INSTALL ?>" />
+					<?php plxUtils::printInput('default_lang', $lang, 'hidden') ?>
+					<?php echo plxToken::getTokenPostMethod() ?>
+
+				</fieldset>
+
+			</form>
+
+		</section>
+
+	</main>
 
 </body>
+
 </html>
