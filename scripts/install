@@ -35,6 +35,7 @@ sudo mkdir -p $final_path
 
 #copy files to final folder and set permissions
 sudo cp -R ../sources/* $final_path/
+sudo cp ../sources/.htaccess $final_path/
 sudo find $final_path -type f -name ".htaccess" | xargs sudo rm
 
 #setup permissions
