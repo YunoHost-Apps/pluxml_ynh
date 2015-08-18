@@ -10,7 +10,7 @@
         "email": "matlink@matlink.fr",
         "url": ""
     },
-    "multi_instance": "false",
+    "multi_instance": "true",
     "arguments": {
         "install" : [
             {
