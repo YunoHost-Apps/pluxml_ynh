@@ -10,6 +10,9 @@ password=$4
 is_public=$5
 default_lang=$6
 
+# Remove trailing slash
+[ "$path" != "/" ] && path=${path%/}
+
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a $app
 if [[ ! $? -eq 0 ]]; then
@@ -45,8 +48,13 @@ sudo find $final_path -type f | xargs sudo chmod 644
 sudo find $final_path -type d | xargs sudo chmod 755
 
 #configure nginx settings
+folder_path=${path%/}
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
-sudo sed -i "s@YNH_EXAMPLE_ALIAS@$final_path@g" ../conf/nginx.conf
+# If path is only / (without subfolder), add trailing slash to alias
+alias_path=$final_path
+[ "$path" == '/' ] && alias_path=$alias_path'/'
+sudo sed -i "s@YNH_EXAMPLE_ALIAS@$alias_path@g" ../conf/nginx.conf
+sudo sed -i "s@YNH_EXAMPLE_FOLDER@$folder_path@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 #temporary set public accessible
@@ -61,7 +69,8 @@ sudo sed -i "1 i\127.0.0.1 $domain #pluxml_hosts" /etc/hosts
 
 #make request to install app
 #get the html page 
-curl -kL -o install_page.html https://$domain$path/install.php >/dev/null 2>&1
+curl_path=$([ "$path" == "/" ] || echo $path)
+curl -kL -o install_page.html https://$domain$curl_path/install.php >/dev/null 2>&1
 
 
 #get the token for form validation
@@ -75,7 +84,7 @@ curl -k -X POST \
   --data-urlencode "pwd=$password" \
   --data-urlencode "pwd2=$password" \
   --data-urlencode "token=$token" \
-  https://$domain$path/install.php > /dev/null 2>&1
+  https://$domain$curl_path/install.php > /dev/null 2>&1
 
 sudo rm -f $final_path/install.php
 
