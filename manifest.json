@@ -57,7 +57,7 @@
                     "fr": "Est-ce que cette application doit être visible publiquement ?"
                 },
                 "choices": ["Yes", "No"],
-                "default": "No"
+                "default": "Yes"
             },
             {
                 "name": "default_lang",
