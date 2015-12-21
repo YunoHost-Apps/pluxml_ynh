@@ -1,6 +1,7 @@
 #! /bin/bash
 
 app=pluxml
+domain=$(sudo yunohost app setting $app domain)
 
 sudo rm -rf /var/www/$app
 sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
