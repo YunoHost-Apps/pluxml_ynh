@@ -1,3 +1,4 @@
-pluxml_ynh
-==========
-A yunohost version of PluXml : http://www.pluxml.org
+# PluXml package for YunoHost
+
+* [PluXml website](http://www.pluxml.org)
+* [YunoHost website](https://yunohost.org/)
