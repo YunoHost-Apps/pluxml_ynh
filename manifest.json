@@ -5,12 +5,17 @@
         "en": "A fast and light blog/CMS with XML",
         "fr": "Blog ou CMS à l'Xml, rapide et léger"
     },
-    "developer": {
+    "url": "http://www.pluxml.org/",
+    "license": "free",
+    "maintainer": {
         "name": "matlink",
-        "email": "matlink@matlink.fr",
-        "url": ""
+        "email": "matlink@matlink.fr"
     },
     "multi_instance": "true",
+    "services": [
+        "nginx",
+        "php5-fpm"
+    ],
     "arguments": {
         "install" : [
             {
@@ -68,8 +73,6 @@
                 "choices": ["de","en","es","fr","it","nl","pl","pt","po","ro","ru"],
                 "default": "en"
             }
-
-
         ]
     }
 }
