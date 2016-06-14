@@ -22,8 +22,7 @@ fi
 # Check user
 sudo yunohost user list --json | grep -q "\"username\": \"$admin\""
 if [[ ! $? -eq 0 ]]; then
-  echo "Wrong user"
-  exit 1
+  echo "Wrong user" && exit 1
 fi
 
 # Save app settings
@@ -60,7 +59,7 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 #temporary set public accessible
 sudo yunohost app setting $app unprotected_uris -v "/"
 
-# Restart services
+# Reload services
 sudo service nginx reload
 sudo yunohost app ssowatconf
 
@@ -92,8 +91,7 @@ sudo rm -f $final_path/install.php
 sudo sed -i "/#pluxml_hosts/d" /etc/hosts
 
 # If app is private, remove url to SSOWat conf from skipped_uris
-if [ "$is_public" = "No" ];
-then
+if [ "$is_public" = "No" ]; then
   sudo yunohost app setting $app unprotected_uris -d
 fi
 
@@ -101,8 +99,7 @@ fi
 sudo yunohost app addaccess $app -u $admin
 
 #allow only allowed users to access admin panel
-sudo yunohost app setting pluxml protected_uris -v "/core/admin/"
+sudo yunohost app setting $app protected_uris -v "/core/admin/"
 
-# Restart services
+# Reload nginx service
 sudo service nginx reload
-sudo yunohost app ssowatconf
