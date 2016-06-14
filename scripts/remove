@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 app=pluxml
 domain=$(sudo yunohost app setting $app domain)
