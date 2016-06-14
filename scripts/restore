@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 app=pluxml
 app_path=/var/www/$app
