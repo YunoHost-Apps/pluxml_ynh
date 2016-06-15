@@ -14,9 +14,14 @@ path=${path%/}
 # Copy source files
 src_path=/var/www/$app
 sudo mkdir -p $src_path
-sudo cp -a ../sources/* $src_path
-sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
-sudo rm $src_path/install.php
+
+# Retrieve sources and install them
+version=$(cat ../conf/upstream_version)
+wget -nc --quiet https://github.com/pluxml/PluXml/archive/$version.zip -P /tmp
+sudo unzip -q /tmp/$version.zip
+# Copy only core data and do not erase data
+sudo cp -r PluXml-$version/config.php PluXml-$version/core PluXml-$version/feed.php \
+PluXml-$version/index.php PluXml-$version/sitemap.php PluXml-$version/update $src_path
 
 sudo chown -R root: $src_path
 sudo chown -R www-data: $src_path/data
@@ -25,9 +30,14 @@ sudo find $src_path -type f | xargs sudo chmod 644
 sudo find $src_path -type d | xargs sudo chmod 755
 
 #configure nginx settings
+folder_path=${path%/}
+sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
+# If path is only / (without subfolder), add trailing slash to alias
+alias_path=$src_path
 nginx_conf="../conf/nginx.conf"
-sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" $nginx_conf
-sudo sed -i "s@YNH_EXAMPLE_ALIAS@$src_path@g" $nginx_conf
+[ "$path" == '/' ] && alias_path=$alias_path'/'
+sudo sed -i "s@YNH_EXAMPLE_ALIAS@$alias_path@g" $nginx_conf
+sudo sed -i "s@YNH_EXAMPLE_FOLDER@$folder_path@g" $nginx_conf
 sudo cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # If app is public, add url to SSOWat conf as skipped_uris
