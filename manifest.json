@@ -12,6 +12,9 @@
         "name": "matlink",
         "email": "matlink@matlink.fr"
     },
+    "requirements": {
+        "yunohost": ">> 2.4.0"
+    },
     "multi_instance": false,
     "services": [
         "nginx",
