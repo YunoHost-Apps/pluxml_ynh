@@ -19,14 +19,15 @@ sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
 sudo rm $src_path/install.php
 
 sudo chown -R root: $src_path
-sudo chown -R www-data: $src_path/data
+sudo chown -R www-data: $src_path/{data, plugins}
 sudo find $src_path -type f | xargs sudo chmod 644
 sudo find $src_path -type d | xargs sudo chmod 755
 
 #configure nginx settings
-sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
-sudo sed -i "s@YNH_EXAMPLE_ALIAS@$src_path@g" ../conf/nginx.conf
-sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+nginx_conf="../conf/nginx.conf"
+sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" $nginx_conf
+sudo sed -i "s@YNH_EXAMPLE_ALIAS@$src_path@g" $nginx_conf
+sudo cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # If app is public, add url to SSOWat conf as skipped_uris
 if [ "$is_public" = "Yes" ]; then

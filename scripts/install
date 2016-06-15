@@ -41,8 +41,7 @@ sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
 
 #setup permissions
 sudo chown -R root: $src_path
-sudo chown -R www-data: $src_path/data
-sudo chown -R www-data: $src_path/plugins
+sudo chown -R www-data: $src_path/{data, plugins}
 sudo find $src_path -type f | xargs sudo chmod 644
 sudo find $src_path -type d | xargs sudo chmod 755
 
@@ -51,10 +50,11 @@ folder_path=${path%/}
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
 # If path is only / (without subfolder), add trailing slash to alias
 alias_path=$src_path
+nginx_conf="../conf/nginx.conf"
 [ "$path" == '/' ] && alias_path=$alias_path'/'
-sudo sed -i "s@YNH_EXAMPLE_ALIAS@$alias_path@g" ../conf/nginx.conf
-sudo sed -i "s@YNH_EXAMPLE_FOLDER@$folder_path@g" ../conf/nginx.conf
-sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+sudo sed -i "s@YNH_EXAMPLE_ALIAS@$alias_path@g" $nginx_conf
+sudo sed -i "s@YNH_EXAMPLE_FOLDER@$folder_path@g" $nginx_conf
+sudo cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 #temporary set public accessible
 sudo yunohost app setting $app unprotected_uris -v "/"
