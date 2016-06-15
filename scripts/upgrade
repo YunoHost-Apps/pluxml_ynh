@@ -19,7 +19,8 @@ sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
 sudo rm $src_path/install.php
 
 sudo chown -R root: $src_path
-sudo chown -R www-data: $src_path/{data, plugins}
+sudo chown -R www-data: $src_path/data
+sudo chown -R www-data: $src_path/plugins
 sudo find $src_path -type f | xargs sudo chmod 644
 sudo find $src_path -type d | xargs sudo chmod 755
 
