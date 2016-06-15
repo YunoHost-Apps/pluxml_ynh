@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit on command errors and treat unset variables as an error
+set -eu
+
 app=pluxml
 app_path=/var/www/$app
 save_path=$1
