@@ -35,8 +35,11 @@ sudo yunohost app setting $app path -v "$path"
 src_path=/var/www/$app
 sudo mkdir -p $src_path
 
-#copy files to src folder and set permissions
-sudo cp -R ../sources/* $src_path/
+# Retrieve sources and install them
+version=$(cat ../conf/upstream_version)
+wget -nc --quiet https://github.com/pluxml/PluXml/archive/$version.zip -P /tmp
+sudo unzip -q /tmp/$version.zip
+sudo mv PluXml-$version/* $src_path
 sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
 
 #setup permissions
