@@ -32,25 +32,25 @@ sudo yunohost app setting $app domain -v "$domain"
 sudo yunohost app setting $app path -v "$path"
 
 #create path for copying
-final_path=/var/www/$app
-sudo mkdir -p $final_path
+src_path=/var/www/$app
+sudo mkdir -p $src_path
 
-#copy files to final folder and set permissions
-sudo cp -R ../sources/* $final_path/
-sudo find $final_path -type f -name ".htaccess" | xargs sudo rm
+#copy files to src folder and set permissions
+sudo cp -R ../sources/* $src_path/
+sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
 
 #setup permissions
-sudo chown -R root: $final_path
-sudo chown -R www-data: $final_path/data
-sudo chown -R www-data: $final_path/plugins
-sudo find $final_path -type f | xargs sudo chmod 644
-sudo find $final_path -type d | xargs sudo chmod 755
+sudo chown -R root: $src_path
+sudo chown -R www-data: $src_path/data
+sudo chown -R www-data: $src_path/plugins
+sudo find $src_path -type f | xargs sudo chmod 644
+sudo find $src_path -type d | xargs sudo chmod 755
 
 #configure nginx settings
 folder_path=${path%/}
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
 # If path is only / (without subfolder), add trailing slash to alias
-alias_path=$final_path
+alias_path=$src_path
 [ "$path" == '/' ] && alias_path=$alias_path'/'
 sudo sed -i "s@YNH_EXAMPLE_ALIAS@$alias_path@g" ../conf/nginx.conf
 sudo sed -i "s@YNH_EXAMPLE_FOLDER@$folder_path@g" ../conf/nginx.conf
@@ -85,7 +85,7 @@ curl -k -X POST \
   --data-urlencode "token=$token" \
   https://$domain$curl_path/install.php > /dev/null 2>&1
 
-sudo rm -f $final_path/install.php
+sudo rm -f $src_path/install.php
 
 #remove domain name from /etc/hosts
 sudo sed -i "/#pluxml_hosts/d" /etc/hosts
