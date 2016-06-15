@@ -3,5 +3,9 @@
 app=pluxml
 domain=$(sudo yunohost app setting $app domain)
 
+# Remove sources
 sudo rm -rf /var/www/$app
+
+# Remove nginx conf and reload nginx service
 sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
+sudo service nginx reload
