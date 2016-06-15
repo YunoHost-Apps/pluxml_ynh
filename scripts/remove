@@ -3,6 +3,9 @@
 app=pluxml
 domain=$(sudo yunohost app setting $app domain)
 
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
 # Remove sources
 sudo rm -rf /var/www/$app
 

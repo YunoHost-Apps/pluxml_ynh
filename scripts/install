@@ -13,6 +13,9 @@ password=$4
 is_public=$5
 default_lang=$6
 
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
 # Remove trailing slash
 [ "$path" != "/" ] && path=${path%/}
 

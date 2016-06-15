@@ -7,6 +7,9 @@ app=pluxml
 app_path=/var/www/$app
 save_path=$1
 
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
 sudo mkdir -p $save_path
 sudo cp -R $app_path/data $save_path/
 sudo cp $app_path/config.php $save_path/
