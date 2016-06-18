@@ -3,9 +3,8 @@
 # Exit on command errors and treat unset variables as an error
 set -eu
 
-app=pluxml
-
-#retrieve arguments
+# Retrieve arguments
+app=$YNH_APP_INSTANCE_NAME
 domain=$(sudo yunohost app setting $app domain)
 path=$(sudo yunohost app setting $app path)
 admin=$(sudo yunohost app setting $app admin)

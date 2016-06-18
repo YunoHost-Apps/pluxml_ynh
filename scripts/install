@@ -3,13 +3,12 @@
 # Exit on command errors and treat unset variables as an error
 set -eu
 
-app=pluxml
-
-#retrieve arguments
-domain=$1
-path=$2
-admin=$3
-password=$4
+# Retrieve arguments
+app=$YNH_APP_INSTANCE_NAME
+domain=$YNH_APP_ARG_DOMAIN
+path=$YNH_APP_ARG_PATH
+admin=$YNH_APP_ARG_ADMIN
+password=$YNH_APP_ARG_PASSWORD
 is_public=$5
 default_lang=$6
 

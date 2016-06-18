@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app=pluxml
+app=$YNH_APP_INSTANCE_NAME
 domain=$(sudo yunohost app setting $app domain)
 
 # Source YunoHost helpers

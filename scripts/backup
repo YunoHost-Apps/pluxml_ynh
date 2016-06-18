@@ -3,7 +3,7 @@
 # Exit on command errors and treat unset variables as an error
 set -eu
 
-app=pluxml
+app=$YNH_APP_INSTANCE_NAME
 app_path=/var/www/$app
 save_path=$1
 
