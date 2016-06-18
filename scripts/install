@@ -36,8 +36,8 @@ sudo mkdir -p $src_path
 # Retrieve sources and install them
 version=$(cat ../conf/upstream_version)
 wget -nc --quiet https://github.com/pluxml/PluXml/archive/$version.zip -P /tmp
-sudo unzip -q /tmp/$version.zip
-sudo mv PluXml-$version/* $src_path
+sudo unzip -q /tmp/$version.zip -d /tmp
+sudo mv /tmp/PluXml-$version/* $src_path
 
 # Set permissions
 sudo chown -R root: $src_path
