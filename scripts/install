@@ -19,24 +19,17 @@ source /usr/share/yunohost/helpers
 [ "$path" != "/" ] && path=${path%/}
 
 # Check domain/path availability
-sudo yunohost app checkurl $domain$path -a $app
-if [[ ! $? -eq 0 ]]; then
-  exit 1
-fi
+sudo yunohost app checkurl "${domain}${path}" -a "$app" \
+    || ynh_die "Path not available: ${domain}${path}"
 
-# Check user
-sudo yunohost user list --json | grep -q "\"username\": \"$admin\""
-if [[ ! $? -eq 0 ]]; then
-  echo "Wrong user" && exit 1
-fi
+# Check the admin exists in YunoHost users
+ynh_user_exists $admin
 
 # Save app settings
-sudo yunohost app setting $app admin -v "$admin"
-sudo yunohost app setting $app is_public -v "$is_public"
-sudo yunohost app setting $app domain -v "$domain"
-sudo yunohost app setting $app path -v "$path"
+ynh_app_setting_set "$app" admin "$admin"
+ynh_app_setting_set "$app" is_public "$is_public"
 
-#create path for copying
+# Create path for copying
 src_path=/var/www/$app
 sudo mkdir -p $src_path
 
@@ -47,13 +40,13 @@ sudo unzip -q /tmp/$version.zip
 sudo mv PluXml-$version/* $src_path
 sudo find $src_path -type f -name ".htaccess" | xargs sudo rm
 
-#setup permissions
+# Set permissions
 sudo chown -R root: $src_path
 sudo chown -R www-data: $src_path/{data,plugins}
 sudo find $src_path -type f | xargs sudo chmod 644
 sudo find $src_path -type d | xargs sudo chmod 755
 
-#configure nginx settings
+# Configure nginx settings
 folder_path=${path%/}
 sudo sed -i "s@YNH_EXAMPLE_PATH@$path@g" ../conf/nginx.conf
 # If path is only / (without subfolder), add trailing slash to alias
@@ -64,25 +57,24 @@ sudo sed -i "s@YNH_EXAMPLE_ALIAS@$alias_path@g" $nginx_conf
 sudo sed -i "s@YNH_EXAMPLE_FOLDER@$folder_path@g" $nginx_conf
 sudo cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
-#temporary set public accessible
-sudo yunohost app setting $app unprotected_uris -v "/"
+# Temporary set public accessible
+ynh_app_setting_set "$app" unprotected_uris "/"
 
 # Reload services
 sudo service nginx reload
 sudo yunohost app ssowatconf
 
-#temporary add domain name to /etc/hosts
+# Temporary add domain name to /etc/hosts
 sudo sed -i "1 i\127.0.0.1 $domain #pluxml_hosts" /etc/hosts
 
-#make request to install app
-#get the html page 
+# Make request to install app
+# Get the html page
 curl_path=$([ "$path" == "/" ] || echo $path)
 curl -kL -o install_page.html https://$domain$curl_path/install.php >/dev/null 2>&1
 
-
-#get the token for form validation
+# Get the token for form validation
 token=$(cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
-#send http POST values
+# Send http POST values
 curl -k -X POST \
   --data-urlencode "default_lang=$default_lang" \
   --data-urlencode "install=Installer" \
@@ -95,19 +87,19 @@ curl -k -X POST \
 
 sudo rm -f $src_path/install.php
 
-#remove domain name from /etc/hosts
+# Remove domain name from /etc/hosts
 sudo sed -i "/#pluxml_hosts/d" /etc/hosts
 
 # If app is private, remove url to SSOWat conf from skipped_uris
-if [ "$is_public" = "No" ]; then
-  sudo yunohost app setting $app unprotected_uris -d
+if [ "$is_public" == "No" ]; then
+  ynh_app_setting_set "$app" unprotected_uris -d
 fi
 
-#adding admin to the allowed users
+# Add admin to the allowed users
 sudo yunohost app addaccess $app -u $admin
 
-#allow only allowed users to access admin panel
-sudo yunohost app setting $app protected_uris -v "/core/admin/"
+# Allow only allowed users to access admin panel
+ynh_app_setting_set "$app" protected_uris "/core/admin/"
 
 # Reload nginx service
 sudo service nginx reload
