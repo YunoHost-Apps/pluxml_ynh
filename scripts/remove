@@ -1,10 +1,10 @@
 #!/bin/bash
 
-app=$YNH_APP_INSTANCE_NAME
-domain=$(sudo yunohost app setting $app domain)
-
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
+
+app=$YNH_APP_INSTANCE_NAME
+domain=$(ynh_app_setting_get $app domain)
 
 # Remove sources
 sudo rm -rf /var/www/$app

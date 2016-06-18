@@ -3,15 +3,15 @@
 # Exit on command errors and treat unset variables as an error
 set -eu
 
-# Retrieve arguments
-app=$YNH_APP_INSTANCE_NAME
-domain=$(sudo yunohost app setting $app domain)
-path=$(sudo yunohost app setting $app path)
-admin=$(sudo yunohost app setting $app admin)
-is_public=$(sudo yunohost app setting $app is_public)
-
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
+
+# Retrieve arguments
+app=$YNH_APP_INSTANCE_NAME
+domain=$(ynh_app_setting_get $app domain)
+path=$(ynh_app_setting_get $app path)
+admin=$(ynh_app_setting_get $app admin)
+is_public=$(ynh_app_setting_get $app is_public)
 
 # Remove trailing "/" for next commands
 path=${path%/}
@@ -45,7 +45,7 @@ sudo cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # If app is public, add url to SSOWat conf as skipped_uris
 if [ "$is_public" = "Yes" ]; then
-  sudo yunohost app setting $app unprotected_uris -v "/"
+  ynh_app_setting_set $app unprotected_uris "/"
 fi
 
 # Reload nginx service
