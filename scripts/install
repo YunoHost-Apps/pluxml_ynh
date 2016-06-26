@@ -10,7 +10,7 @@ path=$YNH_APP_ARG_PATH
 admin=$YNH_APP_ARG_ADMIN
 password=$YNH_APP_ARG_PASSWORD
 is_public=$5
-default_lang=$6
+default_lang=$YNH_APP_ARG_DEFAULT_LANG
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
