@@ -3,8 +3,8 @@
     "id": "pluxml",
     "packaging_format": 1,
     "description": {
-        "en": "A fast and light blog/CMS with XML",
-        "fr": "Blog ou CMS à l'Xml, rapide et léger"
+        "en": "A fast and light blog/CMS storing data in XML and not in database.",
+        "fr": "Blog ou CMS à l’Xml, rapide et léger sans base de données."
     },
     "url": "http://www.pluxml.org",
     "license": "free",
