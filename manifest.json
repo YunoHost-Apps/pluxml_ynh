@@ -8,10 +8,16 @@
     },
     "url": "http://www.pluxml.org",
     "license": "free",
-    "maintainer": {
-        "name": "matlink",
-        "email": "matlink@matlink.fr"
-    },
+    "maintainers": [
+        {
+            "name": "matlink",
+            "email": "matlink@matlink.fr"
+        },
+	{
+	    "name": "Moul",
+	    "email": "moul@moul.re"
+	}
+    ],
     "requirements": {
         "yunohost": ">> 2.4.0"
     },
