@@ -1,4 +1,4 @@
-![PluXml logo](https://raw.github.com/YunoHost-Apps/pluxml_ynh/master/pluxml_logo.png)
+![PluXml logo](https://raw.github.com/YunoHost-Apps/pluxml_ynh/master/images/pluxml_logo.png)
 
 # PluXml package for YunoHost
 
@@ -11,4 +11,4 @@
 - `default_lang`: default language.
 - `is_public`: public instance.
 
-![PluXml screenshot](https://raw.github.com/YunoHost-Apps/pluxml_ynh/master/screenshot.png)
+![PluXml screenshot](https://raw.github.com/YunoHost-Apps/pluxml_ynh/master/images/screenshot.png)
