@@ -10,3 +10,5 @@
 - `admin`: administrator of the PluXml instance. Access on `domain.tld/path/core/admin`.
 - `default_lang`: default language.
 - `is_public`: public instance.
+
+![PluXml screenshot](https://raw.github.com/YunoHost-Apps/pluxml_ynh/master/screenshot.png)
