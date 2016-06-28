@@ -29,8 +29,8 @@ sudo cp -r /tmp/PluXml-$version/{config.php,core,feed.php,index.php,sitemap.php,
 
 sudo chown -R root: $src_path
 sudo chown -R www-data: $src_path/{data,plugins}
-sudo find $src_path -type f | xargs sudo chmod 644
-sudo find $src_path -type d | xargs sudo chmod 755
+sudo find $src_path -type f -exec chmod 644 {} +
+sudo find $src_path -type d -exec chmod 755 {} +
 
 #configure nginx settings
 folder_path=${path%/}
