@@ -91,7 +91,7 @@ sudo sed -i "/#pluxml_hosts/d" /etc/hosts
 
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" == "No" ]; then
-  ynh_app_setting_set "$app" unprotected_uris -d
+  ynh_app_setting_set "$app" unprotected_uris "${path}"
 fi
 
 # Add admin to the allowed users
