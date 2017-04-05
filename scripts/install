@@ -63,9 +63,6 @@ ynh_app_setting_set "$app" unprotected_uris "/"
 sudo service nginx reload
 sudo yunohost app ssowatconf
 
-# Temporary add domain name to /etc/hosts
-sudo sed -i "1 i\127.0.0.1 $domain #pluxml_hosts" /etc/hosts
-
 # Make request to install app
 # Get the html page
 curl_path=$([ "$path" == "/" ] || echo $path)
@@ -74,7 +71,7 @@ curl -kL -o install_page.html https://$domain$curl_path/install.php >/dev/null 2
 # Get the token for form validation
 token=$(cat install_page.html | grep "input" | grep "token" | tail -1 | cut -d' ' -f3 | cut -d'"' -f2)
 # Send http POST values
-curl -k -X POST \
+curl -k -X POST --resolve "$domain:443:localhost"\
   --data-urlencode "default_lang=$default_lang" \
   --data-urlencode "install=Installer" \
   --data-urlencode "name=$admin" \
@@ -85,9 +82,6 @@ curl -k -X POST \
   https://$domain$curl_path/install.php > /dev/null 2>&1
 
 sudo rm -f $src_path/install.php
-
-# Remove domain name from /etc/hosts
-sudo sed -i "/#pluxml_hosts/d" /etc/hosts
 
 # If app is private, remove url to SSOWat conf from skipped_uris
 if [ "$is_public" == "No" ]; then
