@@ -3,23 +3,24 @@
     "id": "pluxml",
     "packaging_format": 1,
     "description": {
-        "en": "A fast and light blog/CMS storing data in XML and not in database.",
-        "fr": "Blog ou CMS à l’Xml, rapide et léger sans base de données."
+        "en": "Blog or CMS storing data in XML.",
+        "fr": "Blog ou CMS à l'Xml."
     },
-    "url": "http://www.pluxml.org",
-    "license": "free",
+    "version": "5.7",
+    "url": "https://www.pluxml.org/",
+    "license": "GPL-2.0-only",
     "maintainer": {
-        "name": "Moul",
-        "email": "moul@moul.re",
-        "url": "https://moul.re"
+        "name": "Antoine",
+        "email": "antoine@miaou.org",
+        "url": "https://miaou.org"
     },
     "requirements": {
-        "yunohost": ">> 2.4.0"
+        "yunohost": ">= 3.1.0"
     },
     "multi_instance": true,
     "services": [
         "nginx",
-        "php5-fpm"
+        "php7.0-fpm"
     ],
     "arguments": {
         "install" : [
@@ -27,10 +28,10 @@
                 "name": "domain",
                 "type": "domain",
                 "ask": {
-                    "en": "Choose a domain for PluXml",
+                    "en": "Choose a domain name for PluXml",
                     "fr": "Choisissez un nom de domaine pour PluXml"
                 },
-                "example": "domain.org"
+                "example": "example.com"
             },
             {
                 "name": "path",
@@ -49,7 +50,7 @@
                     "en": "Choose an admin user for PluXml",
                     "fr": "Choisissez l’administrateur de PluXml"
                 },
-                "example": "homer"
+                "example": "John"
             },
             {
                 "name": "password",
@@ -62,22 +63,23 @@
             },
             {
                 "name": "is_public",
+                "type": "boolean",
                 "ask": {
-                    "en": "Should this application be public?",
-                    "fr": "Est-ce que cette application doit être visible publiquement ?"
+                    "en": "Is it a public application?",
+                    "fr": "Est-ce une application publique ?"
                 },
-                "choices": ["Yes", "No"],
-                "default": "Yes"
+                "default": true
             },
             {
-                "name": "default_lang",
+                "name": "language",
+		"type": "string",
                 "ask": {
                     "en": "Default language",
                     "fr": "Langue par défaut"
                 },
                 "choices": ["de","en","es","fr","it","nl","pl","pt","po","ro","ru"],
                 "default": "en"
-            }
+	    }
         ]
     }
 }
