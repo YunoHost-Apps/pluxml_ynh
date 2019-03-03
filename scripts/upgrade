@@ -110,9 +110,9 @@ ynh_add_fpm_config
 # ...
 
 ## === modif perso ====
-ynh_print_info "Removing install.php and /update"
+ynh_print_info "Removing install.php"
 ynh_secure_remove  ${final_path}/install.php # modif perso
-ynh_secure_remove  ${final_path}/update # modif perso
+#ynh_secure_remove  ${final_path}/update # modif perso # Issue#29
 ## === modif perso ====
 
 #=================================================
