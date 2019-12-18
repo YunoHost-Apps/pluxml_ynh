@@ -68,6 +68,10 @@
                     "en": "Is it a public application?",
                     "fr": "Est-ce une application publique ?"
                 },
+		"help": {
+		    "en": "If checked, the app will be public",
+		    "fr": "Si cochée, votre application sera publique"
+		},
                 "default": true
             },
             {
