@@ -81,7 +81,7 @@
                     "en": "Default language",
                     "fr": "Langue par défaut"
                 },
-                "choices": ["de","en","es","fr","it","nl","pl","pt","po","ro","ru"],
+                "choices": ["de","en","es","fr","it","nl","oc","pl","pt","ro","ru"],
                 "default": "en"
 	    }
         ]
