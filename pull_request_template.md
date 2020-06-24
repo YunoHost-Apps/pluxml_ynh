@@ -11,12 +11,8 @@
 - [ ] Upgrade from last version tested.
 - [ ] Can be reviewed and tested.
 
-## Validation
+## Package_check results
 ---
-- [ ] **Code review** : 
-- [ ] **Approval (LGTM)** :  
+*If you have access to [App Continuous Integration for packagers](https://yunohost.org/#/packaging_apps_ci) you can provide a link to the package_check results like below, replacing '-NUM-' in this link by the PR number and USERNAME by your username on the ci-apps-dev. Or you provide a screenshot or a pastebin of the results*
 
-- **CI succeeded** : 
-[![Build Status](https://ci-apps-dev.yunohost.org/jenkins/job/pluxml_ynh%20PR-NUM-%20(-USER-)/badge/icon)](https://ci-apps-dev.yunohost.org/jenkins/job/pluxml_ynh%20PR-NUM-%20(-USER-)/)
-*Please replace '-NUM-' in this link by the PR number and -USER- by your user name on [Jenkins](https://ci-apps-dev.yunohost.org/jenkins/)*  
-When the PR is marked as ready to merge, you have to wait for 3 days before really merging it.
+[![Build Status](https://ci-apps-dev.yunohost.org/jenkins/job/pluxml_ynh%20PR-NUM-%20(USERNAME)/badge/icon)](https://ci-apps-dev.yunohost.org/jenkins/job/pluxml_ynh%20PR-NUM-%20(USERNAME)/)  
