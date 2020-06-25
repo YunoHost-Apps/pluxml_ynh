@@ -15,7 +15,7 @@
         "url": "https://miaou.org"
     },
     "requirements": {
-        "yunohost": ">= 3.1.0"
+        "yunohost": ">= 3.5"
     },
     "multi_instance": true,
     "services": [
@@ -48,18 +48,9 @@
                 "type": "user",
                 "ask": {
                     "en": "Choose an admin user for PluXml",
-                    "fr": "Choisissez l’administrateur de PluXml"
+                    "fr": "Choisissez l'administrateur de PluXml"
                 },
                 "example": "John"
-            },
-            {
-                "name": "password",
-                "type": "password",
-                "ask": {
-                    "en": "Choose an admin password for PluXml",
-                    "fr": "Choisissez un mot de passe administrateur pour PluXml"
-                },
-                "example": "super_secret_password"
             },
             {
                 "name": "is_public",
@@ -68,10 +59,10 @@
                     "en": "Is it a public application?",
                     "fr": "Est-ce une application publique ?"
                 },
-		"help": {
-		    "en": "If checked, the app will be public",
-		    "fr": "Si cochée, votre application sera publique"
-		},
+                "help": {
+                    "en": "If checked, the app will be public",
+                    "fr": "Si cochée, votre application sera publique"
+                },
                 "default": true
             },
             {
@@ -83,7 +74,16 @@
                 },
                 "choices": ["de","en","es","fr","it","nl","oc","pl","pt","ro","ru"],
                 "default": "en"
-	    }
+	    },
+            {
+                "name": "password",
+                "type": "password",
+                "ask": {
+                    "en": "Choose an admin password for PluXml",
+                    "fr": "Choisissez un mot de passe administrateur pour PluXml"
+                },
+                "example": "super_secret_password"
+            }
         ]
     }
 }
