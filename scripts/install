@@ -94,7 +94,7 @@ ynh_add_fpm_config
 #=================================================
 # SETUP APPLICATION WITH CURL
 #=================================================
-ynh_script_progression --message="Setuping application with CURL..."
+ynh_script_progression --message="Setting up application with CURL..."
 
 # Set right permissions for curl install
 chown -R $app: $final_path
