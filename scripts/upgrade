@@ -116,7 +116,8 @@ ynh_add_fpm_config
 #=================================================
 ynh_script_progression --message="Setting up application with CURL..."
 
-ynh_local_curl "/update/index.php" "submit=Démarrer la mise à jour"
+chown -R "$app":"$app" $final_path
+ynh_local_curl "/update/index.php" "submit=submit"
 
 #=================================================
 # REMOVING NO MORE NEEDED FILES
