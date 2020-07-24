@@ -112,6 +112,14 @@ ynh_add_fpm_config
 #=================================================
 # SPECIFIC UPGRADE
 #=================================================
+# SETUP APPLICATION WITH CURL
+#=================================================
+ynh_script_progression --message="Setting up application with CURL..."
+
+chown -R "$app":"$app" $final_path
+ynh_local_curl "/update/index.php" "submit=submit"
+
+#=================================================
 # REMOVING NO MORE NEEDED FILES
 #=================================================
 ynh_script_progression --message="Removing install.php and /update"
