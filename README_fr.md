@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 ## Vue d'ensemble
 [PluXml](https://www.pluxml.org/) : Blog ou CMS à l'Xml.
 
-**Version incluse:** 5.7
+**Version incluse:** 5.8.3
 
 ## Captures d'écran
 

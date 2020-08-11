@@ -11,7 +11,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 [PluXml](https://www.pluxml.org/) : Blog or CMS storing data in XML.
 
-**Shipped version:** 5.7
+**Shipped version:** 5.8.3
 
 ## Screenshots
 
