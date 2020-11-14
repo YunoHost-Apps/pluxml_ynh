@@ -59,8 +59,7 @@ Le panneau d'administration est accessible via https://domain.tld/path/core/admi
 
 ---
 
-Informations pour les développeurs
-----------------
+## Informations pour les développeurs
 
 Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing).
 

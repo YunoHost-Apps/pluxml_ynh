@@ -59,8 +59,7 @@ Can the app be used by multiple users? **Yes**
 
 ---
 
-Developer info
-----------------
+## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing).
 
