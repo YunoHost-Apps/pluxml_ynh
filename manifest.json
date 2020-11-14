@@ -6,7 +6,7 @@
         "en": "Blog or CMS storing data in XML format.",
         "fr": "Blog ou CMS stockant des données au format XML."
     },
-    "version": "5.8.3~ynh1",
+    "version": "5.8.4~ynh1",
     "url": "https://www.pluxml.org/",
     "license": "GPL-2.0-only",
     "maintainer": {
@@ -15,7 +15,7 @@
         "url": "https://miaou.org"
     },
     "requirements": {
-        "yunohost": ">= 3.5"
+        "yunohost": ">= 4.0.0"
     },
     "multi_instance": true,
     "services": [
