@@ -11,7 +11,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 [PluXml](https://www.pluxml.org/) : Blog or CMS storing data in XML.
 
-**Shipped version:** 5.8.3
+**Shipped version:** 5.8.4
 
 ## Screenshots
 
@@ -59,8 +59,7 @@ Can the app be used by multiple users? **Yes**
 
 ---
 
-Developer info
-----------------
+## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing).
 

@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 ## Vue d'ensemble
 [PluXml](https://www.pluxml.org/) : Blog ou CMS à l'Xml.
 
-**Version incluse:** 5.8.3
+**Version incluse:** 5.8.4
 
 ## Captures d'écran
 
@@ -59,8 +59,7 @@ Le panneau d'administration est accessible via https://domain.tld/path/core/admi
 
 ---
 
-Informations pour les développeurs
-----------------
+## Informations pour les développeurs
 
 Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing).
 
