@@ -9,13 +9,13 @@
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
-[PluXml](https://www.pluxml.org/) : Blog or CMS storing data in XML.
+PluXml is a content management system (CMS) developed in PHP. The data is stored in XML files. It is therefore not necessary to have the database management system. PluXml is customizable through themes and/or plugins.
 
-**Shipped version:** 5.8.3
+**Shipped version:** 5.8.4
 
 ## Screenshots
 
-![Screenshot_Pluxml](sources/images/screenshot.jpg)
+![Screenshot_Pluxml](sources/images/screenshot.png)
 
 ## Demo
 
@@ -59,8 +59,7 @@ Can the app be used by multiple users? **Yes**
 
 ---
 
-Developer info
-----------------
+## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing).
 
