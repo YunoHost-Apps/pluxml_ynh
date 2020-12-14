@@ -128,18 +128,16 @@ ynh_secure_remove --file="${final_path}/update"
 ynh_script_progression --message="Securing files and directories..."
 
 # Set permissions on app files
-chown -R "$app":"$app" $final_path  # modif perso
+chown -R $app:$app $final_path  # modif perso
 
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Upgrading SSOwat configuration..."
+ynh_script_progression --message="Upgrading SSOwat configuration..." --weight=1
 
-# Make app public if necessary
-if [ $is_public -eq 1 ]
+if [ $contains_visitors -eq 1 ]
 then
-	# unprotected_uris allows SSO credentials to be passed anyway
-	ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
+    ynh_permission_update --permission "main" --remove "visitors"
 fi
 
 #=================================================
