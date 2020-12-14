@@ -15,7 +15,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Screenshots
 
-![Screenshot_Pluxml](sources/images/screenshot.jpg)
+![Screenshot_Pluxml](sources/images/screenshot.png)
 
 ## Demo
 

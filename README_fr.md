@@ -15,7 +15,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 
 ## Captures d'écran
 
-![Screenshot_Pluxml](sources/images/screenshot.jpg)
+![Screenshot_Pluxml](sources/images/screenshot.png)
 
 ## Démo
 
