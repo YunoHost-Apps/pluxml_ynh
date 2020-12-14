@@ -9,7 +9,7 @@
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-[PluXml](https://www.pluxml.org/) : Blog ou CMS à l'Xml.
+PluXml est un système de gestion de contenu développé en PHP. Les données sont stockées dans des fichiers XML. Il n'est donc pas nécessaire de disposer du système de gestion de base de données. PluXml est personnalisable par l'intermédiaire de thèmes et/ou de plugins.
 
 **Version incluse:** 5.8.4
 
