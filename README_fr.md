@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 ## Vue d'ensemble
 PluXml est un système de gestion de contenu développé en PHP. Les données sont stockées dans des fichiers XML. Il n'est donc pas nécessaire de disposer du système de gestion de base de données. PluXml est personnalisable par l'intermédiaire de thèmes et/ou de plugins.
 
-**Version incluse:** 5.8.4
+**Version incluse:** 5.8.5
 
 ## Captures d'écran
 
