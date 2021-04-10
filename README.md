@@ -11,7 +11,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 PluXml is a content management system (CMS) developed in PHP. The data is stored in XML files. It is therefore not necessary to have the database management system. PluXml is customizable through themes and/or plugins.
 
-**Shipped version:** 5.8.5
+**Shipped version:** 5.8.6
 
 ## Screenshots
 
