@@ -1,63 +1,40 @@
 # PluXml pour YunoHost
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/pluxml.svg)](https://dash.yunohost.org/appci/app/pluxml) ![](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)  
-[![Installer PluXml avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=pluxml)
+[![Installer PluXml avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
-*[Read this readme in english.](./README.md)* 
+*[Read this readme in english.](./README.md)*
+*[Lire ce readme en français.](./README_fr.md)*
 
-> *Ce package vous permet d'installer PluXml rapidement et simplement sur un serveur YunoHost.  
-Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
+> *Ce package vous permet d'installer PluXml rapidement et simplement sur un serveur YunoHost.
+Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
 
 ## Vue d'ensemble
-PluXml est un système de gestion de contenu développé en PHP. Les données sont stockées dans des fichiers XML. Il n'est donc pas nécessaire de disposer du système de gestion de base de données. PluXml est personnalisable par l'intermédiaire de thèmes et/ou de plugins.
 
-**Version incluse:** 5.8.7
+Blog ou CMS stockant des données au format XML.
+
+**Version incluse :** 5.8.7~ynh1
+
+**Démo :** https://demo.pluxml.org/
 
 ## Captures d'écran
 
-![Screenshot_Pluxml](sources/images/screenshot.png)
+![](./doc/screenshots/screenshot.png)
 
-## Démo
-
-* [Official demo](https://demo.pluxml.org/)
+## Avertissements / informations importantes
 
 ## Configuration
 
 Le panneau d'administration est accessible via https://domain.tld/path/core/admin
 
-## Documentation
+## Documentations et ressources
 
- * Documentation officielle : https://wiki.pluxml.org/
- * Documentation YunoHost : https://yunohost.org/#/app_pluxml_fr
-
-## Caractéristiques spécifiques YunoHost
-
-#### Support multi-utilisateur
-
-* L'authentification LDAP et HTTP est-elle prise en charge ? **Non**  
-* L'application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
-
-#### Architectures supportées
-
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/pluxml.svg)](https://ci-apps.yunohost.org/ci/apps/pluxml/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/pluxml.svg)](https://ci-apps-arm.yunohost.org/ci/apps/pluxml/)
-
-## Limitations
-
-* Limitations connues.
-
-## Informations additionnelles
-
-* Autres informations à ajouter sur cette application
-
-## Liens
-
- * Signaler un bug : https://github.com/YunoHost-Apps/pluxml_ynh/issues
- * Site de l'application : https://www.pluxml.org/
- * Dépôt de l'application principale : https://github.com/pluxml/PluXml
- * Site web YunoHost : https://yunohost.org/
-
----
+* Site officiel de l'app : https://www.pluxml.org/
+* Documentation officielle utilisateur : https://yunohost.org/#/app_pluxml
+* Documentation officielle de l'admin : https://wiki.pluxml.org/
+* Dépôt de code officiel de l'app : https://github.com/pluxml/PluXml
+* Documentation YunoHost pour cette app : https://yunohost.org/app_pluxml
+* Signaler un bug : https://github.com/YunoHost-Apps/pluxml_ynh/issues
 
 ## Informations pour les développeurs
 
@@ -69,3 +46,5 @@ sudo yunohost app install https://github.com/YunoHost-Apps/pluxml_ynh/tree/testi
 ou
 sudo yunohost app upgrade pluxml -u https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing --debug
 ```
+
+**Plus d'infos sur le packaging d'applications :** https://yunohost.org/packaging_apps
