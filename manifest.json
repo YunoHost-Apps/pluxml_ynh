@@ -15,7 +15,7 @@
         "url": "https://miaou.org"
     },
     "requirements": {
-        "yunohost": ">= 4.0.0"
+        "yunohost": ">= 4.2.0"
     },
     "multi_instance": true,
     "services": [
@@ -27,38 +27,22 @@
             {
                 "name": "domain",
                 "type": "domain",
-                "ask": {
-                    "en": "Choose a domain name for PluXml",
-                    "fr": "Choisissez un nom de domaine pour PluXml"
-                },
                 "example": "example.com"
             },
             {
                 "name": "path",
                 "type": "path",
-                "ask": {
-                    "en": "Choose a path for PluXml",
-                    "fr": "Choisissez un chemin pour PluXml"
-                },
                 "example": "/pluxml",
                 "default": "/pluxml"
             },
             {
                 "name": "admin",
                 "type": "user",
-                "ask": {
-                    "en": "Choose an admin user for PluXml",
-                    "fr": "Choisissez l'administrateur de PluXml"
-                },
                 "example": "John"
             },
             {
                 "name": "is_public",
                 "type": "boolean",
-                "ask": {
-                    "en": "Is it a public application?",
-                    "fr": "Est-ce une application publique ?"
-                },
                 "help": {
                     "en": "If checked, the app will be public",
                     "fr": "Si cochée, votre application sera publique"
@@ -67,7 +51,7 @@
             },
             {
                 "name": "language",
-		"type": "string",
+                "type": "string",
                 "ask": {
                     "en": "Default language",
                     "fr": "Langue par défaut"
@@ -78,10 +62,6 @@
             {
                 "name": "password",
                 "type": "password",
-                "ask": {
-                    "en": "Choose an admin password for PluXml",
-                    "fr": "Choisissez un mot de passe administrateur pour PluXml"
-                },
                 "example": "super_secret_password"
             }
         ]
