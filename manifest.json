@@ -8,6 +8,14 @@
     },
     "version": "5.8.7~ynh1",
     "url": "https://www.pluxml.org/",
+    "upstream": {
+        "license": "GPL-2.0-only",
+        "website": "https://www.pluxml.org/",
+        "demo": "https://demo.pluxml.org/",
+        "admindoc": "https://wiki.pluxml.org/",
+        "userdoc": "https://yunohost.org/#/app_pluxml",
+        "code": "https://github.com/pluxml/PluXml"
+    },
     "license": "GPL-2.0-only",
     "maintainer": {
         "name": "Antoine",
