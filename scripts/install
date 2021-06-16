@@ -100,9 +100,6 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 #=================================================
 ynh_script_progression --message="Setting up application with cURL..."
 
-# Set right permissions for curl install
-chown -R $app $final_path
-
 # Set the app as temporarily public for cURL call
 ynh_permission_update --permission="main" --add="visitors"
 
