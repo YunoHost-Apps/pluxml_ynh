@@ -5,7 +5,7 @@
 		admin="john"
 		language="fr"
 		is_public=1
-		password="pass"
+		password="1Strong-Password"
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=1
@@ -18,6 +18,7 @@
 		upgrade=1	from_commit=f618522e430dfcb63e1a5843535cf0da165025f3
 		backup_restore=1
 		multi_instance=1
+		port_already_use=0
 		change_url=1
 ;;; Options
 Email=

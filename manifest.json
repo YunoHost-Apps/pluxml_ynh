@@ -46,7 +46,7 @@
             {
                 "name": "admin",
                 "type": "user",
-                "example": "John"
+                "example": "johndoe"
             },
             {
                 "name": "is_public",
@@ -70,7 +70,7 @@
             {
                 "name": "password",
                 "type": "password",
-                "example": "super_secret_password"
+                "example": "Choose a password"
             }
         ]
     }
