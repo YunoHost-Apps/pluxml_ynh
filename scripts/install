@@ -59,7 +59,7 @@ ynh_app_setting_set --app=$app --key=language --value=$language
 ynh_script_progression --message="Configuring system user..."
 
 # Create a system user
-ynh_system_user_create --username=$app --home_dir="$final_path"
+ynh_system_user_create --username=$app --home_dir=$final_path
 
 #=================================================
 # STANDARD MODIFICATIONS
@@ -90,7 +90,7 @@ ynh_add_nginx_config
 ynh_script_progression --message="Configuring PHP-FPM..."
 
 # Create a dedicated PHP-FPM config
-ynh_add_fpm_config #--package="$extra_php_dependencies"
+ynh_add_fpm_config --package="$extra_php_dependencies"
 phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 
 #=================================================
@@ -98,7 +98,7 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 #=================================================
 # SETUP APPLICATION WITH CURL
 #=================================================
-ynh_script_progression --message="Setting up application with cURL..."
+ynh_script_progression --message="Setuping application with CURL..."
 
 # Set the app as temporarily public for cURL call
 ynh_permission_update --permission="main" --add="visitors"

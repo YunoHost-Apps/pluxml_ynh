@@ -7,7 +7,7 @@
 YNH_PHP_VERSION=7.3
 
 # dependencies used by the app
-#extra_php_dependencies=="php${YNH_PHP_VERSION}-gd"
+extra_php_dependencies="php${YNH_PHP_VERSION}-gd php${YNH_PHP_VERSION}-xml"
 
 #=================================================
 # PERSONAL HELPERS
