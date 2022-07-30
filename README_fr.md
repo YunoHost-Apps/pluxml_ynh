@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Blog ou CMS stockant des données au format XML.
 
-**Version incluse :** 5.8.7~ynh1
+**Version incluse :** 5.8.8~ynh1
 
 **Démo :** https://demo.pluxml.org/
 
