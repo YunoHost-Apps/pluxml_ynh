@@ -6,7 +6,7 @@
         "en": "Blog or CMS storing data in XML format.",
         "fr": "Blog ou CMS stockant des données au format XML."
     },
-    "version": "5.8.7~ynh1",
+    "version": "5.8.8~ynh1",
     "url": "https://www.pluxml.org/",
     "upstream": {
         "license": "GPL-2.0-only",
