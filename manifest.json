@@ -13,7 +13,6 @@
         "website": "https://www.pluxml.org/",
         "demo": "https://demo.pluxml.org/",
         "admindoc": "https://wiki.pluxml.org/",
-        "userdoc": "https://yunohost.org/#/app_pluxml",
         "code": "https://github.com/pluxml/PluXml"
     },
     "license": "GPL-2.0-only",
