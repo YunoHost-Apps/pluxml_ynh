@@ -36,7 +36,6 @@ The admin panel is in https://domain.tld/path/core/admin
 ## Documentation and resources
 
 * Official app website: <https://www.pluxml.org/>
-* Official user documentation: <https://yunohost.org/#/app_pluxml>
 * Official admin documentation: <https://wiki.pluxml.org/>
 * Upstream app code repository: <https://github.com/pluxml/PluXml>
 * YunoHost documentation for this app: <https://yunohost.org/app_pluxml>
