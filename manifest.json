@@ -6,7 +6,7 @@
         "en": "Blog or CMS storing data in XML flat files.",
         "fr": "Blog ou CMS stockant ses données dans des fichiers XML plats."
     },
-    "version": "5.8.7~ynh1",
+    "version": "5.8.8~ynh1",
     "url": "https://www.pluxml.org/",
     "upstream": {
         "license": "GPL-2.0-only",
@@ -28,7 +28,7 @@
     "multi_instance": true,
     "services": [
         "nginx",
-        "php7.3-fpm"
+        "php7.4-fpm"
     ],
     "arguments": {
         "install" : [

@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/pluxml/PluXml/archive/v5.8.7.zip
-SOURCE_SUM=ea8056d5061a366221a4e2a835a991235a1435f62a60171bfc5f04c38988c910
+SOURCE_URL=https://github.com/pluxml/PluXml/archive/v5.8.8.zip
+SOURCE_SUM=21188891cdb7a2c2beab2fa9da2c57b54731000ad9365ae8b3bc39ca99aa9cea
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=zip
 SOURCE_IN_SUBDIR=true
