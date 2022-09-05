@@ -17,6 +17,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Blog ou CMS stockant ses données dans des fichiers XML plats.
 
+
 **Version incluse :** 5.8.8~ynh1
 
 
