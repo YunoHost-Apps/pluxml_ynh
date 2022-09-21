@@ -17,7 +17,8 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Blog ou CMS stockant ses données dans des fichiers XML plats.
 
-**Version incluse :** 5.8.8~ynh1
+
+**Version incluse :** 5.8.9~ynh1
 
 
 **Démo :** https://demo.pluxml.org/
@@ -35,7 +36,6 @@ Le panneau d'administration est accessible via https://domain.tld/path/core/admi
 ## Documentations et ressources
 
 * Site officiel de l'app : <https://www.pluxml.org/>
-* Documentation officielle utilisateur : <https://yunohost.org/#/app_pluxml>
 * Documentation officielle de l'admin : <https://wiki.pluxml.org/>
 * Dépôt de code officiel de l'app : <https://github.com/pluxml/PluXml>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_pluxml>
