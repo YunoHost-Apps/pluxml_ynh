@@ -3,17 +3,16 @@
     "id": "pluxml",
     "packaging_format": 1,
     "description": {
-        "en": "Blog or CMS storing data in XML format.",
-        "fr": "Blog ou CMS stockant des données au format XML."
+        "en": "Blog or CMS storing data in XML flat files.",
+        "fr": "Blog ou CMS stockant ses données dans des fichiers XML plats."
     },
-    "version": "5.8.7~ynh1",
+    "version": "5.8.9~ynh1",
     "url": "https://www.pluxml.org/",
     "upstream": {
         "license": "GPL-2.0-only",
         "website": "https://www.pluxml.org/",
         "demo": "https://demo.pluxml.org/",
         "admindoc": "https://wiki.pluxml.org/",
-        "userdoc": "https://yunohost.org/#/app_pluxml",
         "code": "https://github.com/pluxml/PluXml"
     },
     "license": "GPL-2.0-only",
@@ -23,15 +22,15 @@
         "url": "https://miaou.org"
     },
     "requirements": {
-        "yunohost": ">= 4.2.0"
+        "yunohost": ">= 4.3.0"
     },
     "multi_instance": true,
     "services": [
         "nginx",
-        "php7.3-fpm"
+        "php7.4-fpm"
     ],
     "arguments": {
-        "install" : [
+        "install": [
             {
                 "name": "domain",
                 "type": "domain",
@@ -44,17 +43,8 @@
                 "default": "/pluxml"
             },
             {
-                "name": "admin",
-                "type": "user",
-                "example": "johndoe"
-            },
-            {
                 "name": "is_public",
                 "type": "boolean",
-                "help": {
-                    "en": "If checked, the app will be public",
-                    "fr": "Si cochée, votre application sera publique"
-                },
                 "default": true
             },
             {
@@ -64,13 +54,28 @@
                     "en": "Default language",
                     "fr": "Langue par défaut"
                 },
-                "choices": ["de","en","es","fr","it","nl","oc","pl","pt","ro","ru"],
+                "choices": [
+                    "de",
+                    "en",
+                    "es",
+                    "fr",
+                    "it",
+                    "nl",
+                    "oc",
+                    "pl",
+                    "pt",
+                    "ro",
+                    "ru"
+                ],
                 "default": "en"
-	    },
+            },
+            {
+                "name": "admin",
+                "type": "user"
+            },
             {
                 "name": "password",
-                "type": "password",
-                "example": "Choose a password"
+                "type": "password"
             }
         ]
     }

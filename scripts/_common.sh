@@ -4,10 +4,10 @@
 # COMMON VARIABLES
 #=================================================
 
-YNH_PHP_VERSION=7.3
+php_dependencies="php$YNH_DEFAULT_PHP_VERSION-gd php$YNH_DEFAULT_PHP_VERSION-xml"
 
-# dependencies used by the app
-extra_php_dependencies="php${YNH_PHP_VERSION}-gd php${YNH_PHP_VERSION}-xml"
+# dependencies used by the app (must be on a single line)
+pkg_dependencies="$php_dependencies"
 
 #=================================================
 # PERSONAL HELPERS
