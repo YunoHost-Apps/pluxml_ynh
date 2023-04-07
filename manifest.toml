@@ -5,7 +5,7 @@ name = "PluXml"
 description.en = "Blog or CMS storing data in XML flat files."
 description.fr = "Blog ou CMS stockant ses données dans des fichiers XML plats."
 
-version = "5.8.9~ynh1"
+version = "5.8.9~ynh2"
 
 maintainers = ["Antoine"]
 
