@@ -55,7 +55,7 @@ ram.runtime = "50M"
         [resources.sources.main]
         url = "https://github.com/pluxml/PluXml/releases/download/5.8.9/pluxml-5.8.9.zip"
         sha256 = "e910d61041c56ce97085c0251f617ee2230ee7b7557e7af1c7cb513ce2d8b060"
-
+        autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
