@@ -5,39 +5,33 @@ It shall NOT be edited by hand.
 
 # PluXml pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/pluxml.svg)](https://dash.yunohost.org/appci/app/pluxml) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/pluxml.svg)](https://dash.yunohost.org/appci/app/pluxml) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
+
 [![Installer PluXml avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer PluXml rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer PluXml rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Blog ou CMS stockant ses données dans des fichiers XML plats.
 
 
-**Version incluse :** 5.8.9~ynh1
-
+**Version incluse :** 5.8.9~ynh1
 
 **Démo :** https://demo.pluxml.org/
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de PluXml](./doc/screenshots/screenshot.png)
-
-## Avertissements / informations importantes
-
-## Configuration
-
-Le panneau d'administration est accessible via https://domain.tld/path/core/admin
+![Capture d’écran de PluXml](./doc/screenshots/screenshot.png)
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://www.pluxml.org/>
-* Documentation officielle de l'admin : <https://wiki.pluxml.org/>
-* Dépôt de code officiel de l'app : <https://github.com/pluxml/PluXml>
+* Site officiel de l’app : <https://www.pluxml.org/>
+* Documentation officielle de l’admin : <https://wiki.pluxml.org/>
+* Dépôt de code officiel de l’app : <https://github.com/pluxml/PluXml>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_pluxml>
 * Signaler un bug : <https://github.com/YunoHost-Apps/pluxml_ynh/issues>
 
@@ -53,4 +47,4 @@ ou
 sudo yunohost app upgrade pluxml -u https://github.com/YunoHost-Apps/pluxml_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
