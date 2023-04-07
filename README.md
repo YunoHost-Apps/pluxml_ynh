@@ -27,12 +27,6 @@ Blog or CMS storing data in XML flat files.
 
 ![Screenshot of PluXml](./doc/screenshots/screenshot.png)
 
-## Disclaimers / important information
-
-## Configuration
-
-The admin panel is in https://domain.tld/path/core/admin
-
 ## Documentation and resources
 
 * Official app website: <https://www.pluxml.org/>

@@ -27,12 +27,6 @@ Blog ou CMS stockant ses données dans des fichiers XML plats.
 
 ![Capture d’écran de PluXml](./doc/screenshots/screenshot.png)
 
-## Avertissements / informations importantes
-
-## Configuration
-
-Le panneau d'administration est accessible via https://domain.tld/path/core/admin
-
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://www.pluxml.org/>
