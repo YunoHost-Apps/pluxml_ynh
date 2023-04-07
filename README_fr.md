@@ -19,7 +19,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 Blog ou CMS stockant ses données dans des fichiers XML plats.
 
 
-**Version incluse :** 5.8.9~ynh1
+**Version incluse :** 5.8.9~ynh2
 
 **Démo :** https://demo.pluxml.org/
 

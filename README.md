@@ -19,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 Blog or CMS storing data in XML flat files.
 
 
-**Shipped version:** 5.8.9~ynh1
+**Shipped version:** 5.8.9~ynh2
 
 **Demo:** https://demo.pluxml.org/
 
