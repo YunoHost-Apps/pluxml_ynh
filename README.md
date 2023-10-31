@@ -32,7 +32,7 @@ Blog or CMS storing data in XML flat files.
 * Official app website: <https://www.pluxml.org/>
 * Official admin documentation: <https://wiki.pluxml.org/>
 * Upstream app code repository: <https://github.com/pluxml/PluXml>
-* YunoHost documentation for this app: <https://yunohost.org/app_pluxml>
+* YunoHost Store: <https://apps.yunohost.org/app/pluxml>
 * Report a bug: <https://github.com/YunoHost-Apps/pluxml_ynh/issues>
 
 ## Developer info
