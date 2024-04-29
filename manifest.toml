@@ -41,7 +41,7 @@ ram.runtime = "50M"
     [install.language]
     ask.en = "Default language"
     ask.fr = "Langue par défaut"
-    type = "string"
+    type = "select"
     choices = ["de", "en", "es", "fr", "it", "nl", "oc", "pl", "pt", "ro", "ru"]
     default = "en"
 
