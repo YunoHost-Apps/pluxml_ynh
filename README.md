@@ -21,7 +21,6 @@ Blog or CMS storing data in XML flat files.
 
 **Shipped version:** 5.8.13~ynh1
 
-
 **Demo:** <https://demo.pluxml.org/>
 
 ## Screenshots
