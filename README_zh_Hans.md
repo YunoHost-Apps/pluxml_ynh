@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 PluXml
+# YunoHost 上的 PluXml
 
 [![集成程度](https://dash.yunohost.org/integration/pluxml.svg)](https://dash.yunohost.org/appci/app/pluxml) ![工作状态](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
 
@@ -19,7 +19,7 @@
 Blog or CMS storing data in XML flat files.
 
 
-**分发版本：** 5.8.12~ynh1
+**分发版本：** 5.8.13~ynh1
 
 **演示：** <https://demo.pluxml.org/>
 
