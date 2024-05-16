@@ -19,7 +19,7 @@
 Blog or CMS storing data in XML flat files.
 
 
-**分发版本：** 5.8.13~ynh1
+**分发版本：** 5.8.14~ynh1
 
 **演示：** <https://demo.pluxml.org/>
 
