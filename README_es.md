@@ -19,7 +19,7 @@ No se debe editar a mano.
 Blog or CMS storing data in XML flat files.
 
 
-**Versión actual:** 5.8.13~ynh1
+**Versión actual:** 5.8.14~ynh1
 
 **Demo:** <https://demo.pluxml.org/>
 
