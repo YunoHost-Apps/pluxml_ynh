@@ -5,7 +5,7 @@
 
 # YunoHost 上的 PluXml
 
-[![集成程度](https://dash.yunohost.org/integration/pluxml.svg)](https://dash.yunohost.org/appci/app/pluxml) ![工作状态](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/pluxml.svg)](https://ci-apps.yunohost.org/ci/apps/pluxml/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
 
 [![使用 YunoHost 安装 PluXml](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
@@ -19,7 +19,7 @@
 Blog or CMS storing data in XML flat files.
 
 
-**分发版本：** 5.8.14~ynh1
+**分发版本：** 5.8.15~ynh1
 
 **演示：** <https://demo.pluxml.org/>
 

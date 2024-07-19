@@ -5,7 +5,7 @@ NON debe editarse manualmente.
 
 # PluXml para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/pluxml.svg)](https://dash.yunohost.org/appci/app/pluxml) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/pluxml.svg)](https://ci-apps.yunohost.org/ci/apps/pluxml/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
 
 [![Instalar PluXml con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
@@ -19,7 +19,7 @@ NON debe editarse manualmente.
 Blog or CMS storing data in XML flat files.
 
 
-**Versión proporcionada:** 5.8.14~ynh1
+**Versión proporcionada:** 5.8.15~ynh1
 
 **Demo:** <https://demo.pluxml.org/>
 
