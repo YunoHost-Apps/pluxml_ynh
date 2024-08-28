@@ -19,7 +19,7 @@ Ini TIDAK boleh diedit dengan tangan.
 Blog or CMS storing data in XML flat files.
 
 
-**Versi terkirim:** 5.8.15~ynh1
+**Versi terkirim:** 5.8.16~ynh1
 
 **Demo:** <https://demo.pluxml.org/>
 
@@ -31,7 +31,7 @@ Blog or CMS storing data in XML flat files.
 
 - Website aplikasi resmi: <https://www.pluxml.org/>
 - Dokumentasi admin resmi: <https://wiki.pluxml.org/>
-- Repositori kode aplikasi hulu: <https://github.com/pluxml/PluXml>
+- Depot kode aplikasi hulu: <https://github.com/pluxml/PluXml>
 - Gudang YunoHost: <https://apps.yunohost.org/app/pluxml>
 - Laporkan bug: <https://github.com/YunoHost-Apps/pluxml_ynh/issues>
 

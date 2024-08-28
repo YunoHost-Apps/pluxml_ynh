@@ -19,7 +19,7 @@ EZ editatu eskuz.
 Blog or CMS storing data in XML flat files.
 
 
-**Paketatutako bertsioa:** 5.8.15~ynh1
+**Paketatutako bertsioa:** 5.8.16~ynh1
 
 **Demoa:** <https://demo.pluxml.org/>
 
