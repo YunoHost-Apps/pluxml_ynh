@@ -19,7 +19,7 @@ Il NE doit PAS être modifié à la main.
 Blog ou CMS stockant ses données dans des fichiers XML plats.
 
 
-**Version incluse :** 5.8.15~ynh1
+**Version incluse :** 5.8.16~ynh1
 
 **Démo :** <https://demo.pluxml.org/>
 
