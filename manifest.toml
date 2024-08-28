@@ -5,7 +5,7 @@ name = "PluXml"
 description.en = "Blog or CMS storing data in XML flat files."
 description.fr = "Blog ou CMS stockant ses données dans des fichiers XML plats."
 
-version = "5.8.15~ynh1"
+version = "5.8.16~ynh1"
 
 maintainers = ["Antoine"]
 
@@ -53,8 +53,8 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.15.tar.gz"
-        sha256 = "b48d4a7decce1574324304fda157b2b0cebe8659c9a405953aecbfc89b0ebd1d"
+        url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.16.tar.gz"
+        sha256 = "a716c43428793ed19f2b8346b2d6d64ac99b2ff041c1474db28481f525f196e3"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
