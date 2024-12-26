@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # PluXml untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/pluxml.svg)](https://ci-apps.yunohost.org/ci/apps/pluxml/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/pluxml)](https://ci-apps.yunohost.org/ci/apps/pluxml/)
+![Status kerja](https://apps.yunohost.org/badge/state/pluxml)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/pluxml)
 
 [![Pasang PluXml dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
@@ -19,7 +21,7 @@ Ini TIDAK boleh diedit dengan tangan.
 Blog or CMS storing data in XML flat files.
 
 
-**Versi terkirim:** 5.8.16~ynh1
+**Versi terkirim:** 5.8.17~ynh1
 
 **Demo:** <https://demo.pluxml.org/>
 

@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # PluXml YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/pluxml.svg)](https://ci-apps.yunohost.org/ci/apps/pluxml/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/pluxml)](https://ci-apps.yunohost.org/ci/apps/pluxml/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/pluxml)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/pluxml)
 
 [![Instalatu PluXml YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
@@ -19,7 +21,7 @@ EZ editatu eskuz.
 Blog or CMS storing data in XML flat files.
 
 
-**Paketatutako bertsioa:** 5.8.16~ynh1
+**Paketatutako bertsioa:** 5.8.17~ynh1
 
 **Demoa:** <https://demo.pluxml.org/>
 
