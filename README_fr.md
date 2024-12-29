@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # PluXml pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/pluxml.svg)](https://ci-apps.yunohost.org/ci/apps/pluxml/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/pluxml.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/pluxml.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/pluxml)](https://ci-apps.yunohost.org/ci/apps/pluxml/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/pluxml)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/pluxml)
 
 [![Installer PluXml avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=pluxml)
 
@@ -19,7 +21,7 @@ Il NE doit PAS être modifié à la main.
 Blog ou CMS stockant ses données dans des fichiers XML plats.
 
 
-**Version incluse :** 5.8.16~ynh1
+**Version incluse :** 5.8.17~ynh1
 
 **Démo :** <https://demo.pluxml.org/>
 
