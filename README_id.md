@@ -21,7 +21,7 @@ Ini TIDAK boleh diedit dengan tangan.
 Blog or CMS storing data in XML flat files.
 
 
-**Versi terkirim:** 5.8.17~ynh1
+**Versi terkirim:** 5.8.18~ynh1
 
 **Demo:** <https://demo.pluxml.org/>
 
