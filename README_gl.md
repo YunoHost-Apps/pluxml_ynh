@@ -21,7 +21,7 @@ NON debe editarse manualmente.
 Blog or CMS storing data in XML flat files.
 
 
-**Versión proporcionada:** 5.8.18~ynh1
+**Versión proporcionada:** 5.8.19~ynh1
 
 **Demo:** <https://demo.pluxml.org/>
 

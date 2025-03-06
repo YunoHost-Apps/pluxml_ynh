@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
 packaging_format = 2
 
 id = "pluxml"
@@ -5,7 +7,7 @@ name = "PluXml"
 description.en = "Blog or CMS storing data in XML flat files."
 description.fr = "Blog ou CMS stockant ses données dans des fichiers XML plats."
 
-version = "5.8.18~ynh1"
+version = "5.8.19~ynh1"
 
 maintainers = ["Antoine"]
 
@@ -23,6 +25,7 @@ architectures = "all"
 multi_instance = true
 
 ldap = false
+
 sso = false
 
 disk = "50M"
@@ -55,10 +58,10 @@ ram.runtime = "50M"
     type = "password"
 
 [resources]
-        [resources.sources.main]
-        url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.18.tar.gz"
-        sha256 = "2912abd735fc05be14074faf9ddf5a74c51f011bec4a4e3d771f10c025711815"
-        autoupdate.strategy = "latest_github_tag"
+    [resources.sources.main]
+    url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.19.tar.gz"
+    sha256 = "9a6cc5a370f5881d0f1997a1cd4a6609ee6b0ceeb8f0cab1270dbbe037099a91"
+    autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
@@ -69,4 +72,4 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php8.0-gd php8.0-xml"
+    packages = "php8.0-gd, php8.0-xml"
