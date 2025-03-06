@@ -72,4 +72,4 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php8.0-gd php8.0-xml"
+    packages = "php8.0-gd, php8.0-xml"
