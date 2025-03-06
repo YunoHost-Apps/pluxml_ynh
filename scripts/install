@@ -7,6 +7,8 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
+ynh_app_setting_set --key=php_upload_max_filesize --value=256M
+
 #=================================================
 # INITIALIZE AND STORE SETTINGS
 #=================================================
