@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
 packaging_format = 2
 
 id = "pluxml"
@@ -23,6 +25,7 @@ architectures = "all"
 multi_instance = true
 
 ldap = false
+
 sso = false
 
 disk = "50M"
@@ -55,10 +58,10 @@ ram.runtime = "50M"
     type = "password"
 
 [resources]
-        [resources.sources.main]
-        url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.19.tar.gz"
-        sha256 = "9a6cc5a370f5881d0f1997a1cd4a6609ee6b0ceeb8f0cab1270dbbe037099a91"
-        autoupdate.strategy = "latest_github_tag"
+    [resources.sources.main]
+    url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.19.tar.gz"
+    sha256 = "9a6cc5a370f5881d0f1997a1cd4a6609ee6b0ceeb8f0cab1270dbbe037099a91"
+    autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
