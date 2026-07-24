@@ -7,7 +7,7 @@ name = "PluXml"
 description.en = "Blog or CMS storing data in XML flat files."
 description.fr = "Blog ou CMS stockant ses données dans des fichiers XML plats."
 
-version = "5.8.22~ynh2"
+version = "5.8.23~ynh1"
 
 maintainers = ["Antoine"]
 
@@ -19,7 +19,7 @@ admindoc = "https://wiki.pluxml.org/"
 code = "https://github.com/pluxml/PluXml"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -59,8 +59,8 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.22.tar.gz"
-    sha256 = "a2b203b559dc5f11743aea42f59e32e60b6a0d289b8e8daaab4bc1da210910b4"
+    url = "https://github.com/pluxml/PluXml/archive/refs/tags/v5.8.23.tar.gz"
+    sha256 = "b5b989d083adb813cc4b056f711a4b74fef06105c1c68330302c839b18034b78"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
